@@ -1,0 +1,7 @@
+faster-whisper
+torch
+torchaudio
+silero-vad
+soundfile
+transformers
+sentencepiece
