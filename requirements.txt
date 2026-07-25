@@ -5,3 +5,5 @@ silero-vad
 soundfile
 transformers
 sentencepiece
+accelerate
+bitsandbytes
