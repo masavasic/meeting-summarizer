@@ -1,0 +1,179 @@
+[0.00s - 7.42s] Dobar dan svima još jednom, ja sam Natalija Đorđević, asistent sam na katedri za signale i sisteme na elektrotehničkom fakultetu u Beogradu
+[7.42s - 14.34s] i sa mnom trebalo bi da se pridruži profesor dr. Dražen Drašković koja je sa katedre za računarsku tehniku i informatiku.
+[15.48s - 22.26s] Probaćemo da vam predstavimo naš fakultet u nekih 15-20 minuta, onda posle naravno ako bude nekih dodatnih pitanja tu smo da odgovarimo.
+[22.26s - 30.62s] Prva stvar koju bih voljela da prodiskutujem jeste šta bi bila vaša motivacija za upisivanje elektrotehnike i računarstva
+[30.62s - 39.62s] i ono što bih voljela da znate jeste da to nije jedna oblast, odnosno da ne zamišljate ETF kao neko mesto gde posle izlaska se bavite jednom stvari,
+[40.20s - 47.82s] već na našem fakultetu se radi čitav niz oblasti koje su srodne i koje su trenutno, da kažem, aktualne,
+[47.82s - 54.14s] odnosno sva tehnologija s kojim se mi susrećemo svakog dana jeste neka kombinacija tehnologija koja se radi na ETF-u.
+[54.98s - 58.44s] Dakle, mislim da je opravdano da kažemo da je naša struka struka koja menja svet,
+[59.44s - 64.64s] a naravno, kao što verovatno i znate, ETF je jedan od najpoznatijih brendova obrazovanja iz Srbije,
+[64.64s - 72.02s] što znači da je naša diploma priznata i poznata i da ako nakon ETF-a želite ići negde u inostranstvo,
+[72.16s - 77.64s] bilo na dalje školovanje ili za posao, diploma ETF-a se itekako cijeni kao diploma dobrog fakulteta
+[78.20s - 81.02s] i naravno to važi i za dobijanje posla u Srbiji.
+[82.14s - 85.94s] To pokazuju naravno i naši partneri, to su neke firme za koje ste svi sigurno već čuli,
+[86.08s - 91.70s] kao Microsoft, Siemens, Bosch, Cisco, koja se rađuju već dugo godina sa našim fakultetom
+[91.70s - 95.94s] i naši studenti redovno dobijaju prilike i za prakse i za poslove u ovim firmama.
+[98.03s - 103.89s] Verujem da drugo pitanje koje svi uvek imaju je da li je teško studirati na elektrotehničkom fakultetu
+[103.89s - 108.99s] i ja ću probati da vas razuverim. Činjenica koja tome ide u prilog jeste da nama,
+[109.07s - 116.53s] godišnje, diplomira 480 do 500 studenta i da je naše studiranje pre svega uskladjeno sa bolenskom deklaracijom.
+[117.21s - 121.89s] Što to znači? Pa praktično kod nas ne postoje dvosemestralni ispiti, odnosno ne postoje oni ispiti
+[121.89s - 129.27s] gde biste vi godinu dana slušali ispita, zatim ga polagali, već se nekako vaš rad kroz čitav semestar
+[129.27s - 137.27s] boduje i vrednuje i svi ispiti su jednosemestralni. Dakle, gradivo je uglavnom podeljeno tako da deo gradiva vi polažete preko kolokvijuma,
+[139.07s - 147.81s] na projektima, domaćim zadacima, laboratorijskim vežbama, tako da sve u svemu reklo bi se da za nekoga koga ovo interesuje,
+[147.99s - 157.19s] koji je sklon nauci i rašavanju različitih zadataka i problema, a spreman je da uloži trud i rad, ETF zapravo i nije težak fakultet.
+[157.71s - 165.07s] Ovde smo navjeli samo neke od stvari kojima se bave naši inženjeri, čisto da približimo koje su to sve različite stvari
+[165.07s - 169.73s] koje možete raditi sa našim fakultetom, na primer sa odseka za energetiku.
+[170.35s - 174.51s] Inženjeri projektuju elektrane, obezbeđuju da imamo dovoljno čiste električne energije,
+[175.21s - 183.35s] zatim takođe razvijanje mobilnih mreža, infrastruktura, kreiranje različitih naprednih robota, pametnih automobila.
+[184.25s - 190.97s] Onda recimo neko koji je u oblasti biomedicine bavio bi se razvojem i održavanjem različitih diagnostičkih aparata
+[190.97s - 200.07s] i obradom biomedicinskih signala. Naravno tu je veliki deo i projektovanje hardvera i softvera, njihovo testiranje i održavanje.
+[200.35s - 207.15s] I nešto što verujem da je svima sada interesantno u ovo vrema, to je razvoj veštačke inteligencije i rad sa velikim bazama podataka
+[207.15s - 210.23s] radi se na našem fakultetu na više različitih odseka.
+[212.53s - 216.91s] Radni uslovi nakon završetka ETF-a su dobri po više različitih kriterijuma.
+[217.45s - 222.99s] Jedan je taj da firme su takve da uglavnom radite sa nekim novim tehnologijama, dakle idete u korak sa svetom
+[222.99s - 230.07s] i firme često pružaju i mogućnost profesionalnog usavršavanja u vidu slušanja različitih kurseva
+[230.63s - 231.77s] ili recimo odlaska.
+[231.79s - 237.43s] Na konferencije u inostranstvu, tako da nikada nećete biti u zaostatku u odnosu na vaše kolege širom sveta.
+[238.39s - 242.75s] Također radno vreme je često u ovakvim firmama fleksibilno, postoji mogućnost rada od kuće,
+[243.57s - 249.59s] čiju ćete prednost verovatno tek vidjeti kada krenete da radite, ali zapravo je velika prednost za vašu svakodnevnicu.
+[250.79s - 258.15s] Firme često obezbeđuju i putovanje u inostranstvu i ono što je generalno dobro jeste to što vi kao inženjer elektrotehnike i računarstva
+[258.39s - 261.15s] niste samo traženi na tržištu Srbije, već ste traženi na...
+[261.79s - 269.79s] na globalnom tržištu, tako da ako imate nekakav plan ili želju za odlazak u inostranstvo ETF je definitivno dobra podloga za tako nešto.
+[270.79s - 276.79s] Mi smo ovde stavili početnu platu od 1200 evra, da nekako probamo da obuhvatimo sve branše i da budemo malo konzervativni,
+[277.79s - 284.79s] ali u suštini plate su i veće i često se jako brzo napreduje i povišice dolaze na polugodišnjem ili godišnjem nivou.
+[286.79s - 290.79s] Ovo je jedan slikovit slajd samo da vam pokažemo neke od firme gde rade naši inženjeri.
+[291.79s - 297.79s] Ne znam da li ste to čuli, ali recimo Microsoft, Nvidia, Nordeus, Siemens, Huawei, Telekom itd.
+[298.79s - 305.42s] Što se tiče upisa na elektrotehnički fakultet, vama je potrebna završena četvrogodišnja srednja škola
+[306.42s - 309.42s] i mi na našem fakultetu imamo dva studijska programa.
+[310.42s - 315.42s] Imamo studijski program elektrotehniku i računarstvo i studijski program softvarsko inženjerstvo.
+[316.42s - 320.42s] Za elektrotehniku i računarstvo vi morate polagati matematiku ili fiziku,
+[321.42s - 322.42s] a postoji mogućnost da ako odaberete da polažete u elektrotehniku ili računarstvo,
+[323.42s - 329.42s] vama se onda računa bolji rezultat od ta dva, a za softvarsko inženjerstvo morate polagati matematiku.
+[333.14s - 338.14s] Postoji mogućnost da budete oslobođeni prijemnog ispita ukoliko imate nagrade iz 3. ili 4. razreda
+[339.14s - 342.14s] na međunarodnim i državnim takmičenjima iz fizike i matematike,
+[343.14s - 348.14s] s tim da treba da napomenem da su to samo takmičenja koje organizuju Zvanično društvo matematičara Srbije
+[349.14s - 354.14s] i Društvo fizičara Srbije, i konkretno ukoliko imate nagradu iz matematike ili fizike možete biti oslobođeni
+[354.14s - 357.14s] polaganja prijemnog za program elektrotehnika i računarstvo,
+[358.14s - 364.14s] a ukoliko imate nagradu iz matematike ili informatike oslobođeni ste polaganja prijemnog za softvarsko inženjerstvo.
+[365.14s - 370.14s] Što se tiče računanja ukupnih bodova za rangiranje za upis, 60% bodova nosi prijemni ispit,
+[371.14s - 373.14s] a 40% bodova nosi uspeh iz srednje škole.
+[374.14s - 379.14s] Svoj uspeh iz srednje škole možete da sračunate kao sumu prosječnih ocena iz svih razreda srednje škole,
+[380.14s - 383.14s] pa pomnoženo sa dva. Dakle ako ste 5-0 imate 4 puta 5 što je 20,
+[384.14s - 389.14s] i još puta 2, i to bi činilo svih 40 pojena koje mogu da se osvoje iz srednje škole.
+[392.54s - 399.54s] Što se tiče toga kako se pripremati za ETF, naš fakultet nudi i pripremnu nastavu koju drže asistenti i profesori sa ETF-a.
+[400.54s - 406.54s] Dakle prve grupe tu počinju da se formiraju u oktobru, ali ukoliko postoji zainteresovanih ljudi i dovoljno da može da se oformi grupa,
+[407.54s - 410.54s] to se nastavlja i kasnije, dakle kasnije se formiraju grupe.
+[411.54s - 415.54s] I ono što je dobro kod ovakve nastave, ja sam recimo išla na ovakvu nastavu,
+[416.54s - 423.54s] ono što je korisno jeste da imate probne testove, odnosno nekakve pripremne testove koji treba da vam naprave probu prijemnog ispita,
+[424.54s - 429.54s] odnosno da vi sebe istestirate kako biste prošli u nekoj situaciji sličnoj, odnosno na nekom testu koji je sličan prijemnom ispitu.
+[430.54s - 436.54s] Ovde smo stavili neke informacije vezane za to kome možete da se obratite u vezi sa pripremnom nastavom,
+[437.54s - 442.54s] a zbirke zadataka koje se koriste za pripremu mogu da se nabave u skriptarnici ETF-a.
+[445.94s - 447.94s] Procedura upisa sastoji se iz tri koraka.
+[448.94s - 452.94s] Dakle prijava za prijemni ispit, zatim imate i sam prijemni ispit pa onda upis.
+[453.94s - 461.94s] Dakle negde u maju otprilike na sajtu koji je namenjen prijemnom na ETF-u, sajt je prijemni.etf.bgacrs.
+[462.94s - 468.94s] Na tom sajtu koji je posvećen isključivo prijemnom negde u maju dobijete mogućnost da se elektronski prijavite,
+[469.94s - 476.94s] dakle da uradite nekakvu pred prijavu i zatim u junu imate i konačnu prijavu gde fizički morate doći na elektrotehničke fakultete
+[476.94s - 479.94s] i time ste se zapravo prijavili za polaganje prijemnog ispita.
+[480.94s - 488.94s] Sam prijemni ispit uglavnom bude krajem juna i nakon toga pratite sve relevantne informacije vezane za rang liste i za to kada će biti upis.
+[491.48s - 500.48s] Što se tiče kvote i školarina za 2025. godinu, na elektrotehnici i računalstvu imamo 400 budžetskih mjesta i 140 samofinansirajućih mjesta,
+[501.48s - 505.48s] pritom je školarina za samofinansirajuće studente 144.000 dinara godišnje,
+[505.48s - 514.48s] a softvarsko inženjerstvo ima 30 budžetskih mjesta, 150 samofinansirajućih i školarina je 282.000 dinara.
+[516.98s - 520.98s] Hteli smo da vam stavimo neku statistiku ovde koja bi vam možda olakšala da vidite kako se,
+[521.98s - 527.98s] to je da steknete neki utisak koji morate biti na rang liste da biste upali na budžet ili samofinansiranje
+[528.98s - 535.98s] i konkretno uzeli smo statistiku od 2024. godine zato što je 2025. godine zbog blokade i svega statistika
+[536.98s - 542.98s] u ovaj način odskače od one uobičajene pa može se reći da nije dobar reprezent onoga što treba da očekujete.
+[543.98s - 551.98s] Dakle, nakon prijemnog ispitaka da se oforme liste, rang liste za elektrotehniku, računarstvo i za softvarsko inženjerstvo,
+[552.98s - 561.98s] početna crta se povlači na onom broju koliko ima mjesta. Dakle, na elektrotehnici i računarstvu početna crta za budžet je na 400 tom mjestu,
+[562.98s - 565.98s] a za samofinansiranje na 540-om.
+[566.98s - 571.98s] Za softvarsko inženjerstvo početna crta je na 30-om i za samofinansiranje na 180-om.
+[572.98s - 580.98s] Međutim, ono što želim da vam kažem da se ne obezhrabrite ukoliko sa povlačenjem te početne crte vi ne pređete preko crte,
+[581.98s - 584.98s] zato što se ta situacija drastično promeni prilikom samog upisa.
+[585.98s - 593.98s] To jest, onda kada ljudi recimo koji su se prijavili za više različitih fakulteta pa odustanu od ETF-a ili ljudi koji odustanu od samofinansiranja,
+[594.98s - 596.98s] tada se crta, ona početna crta,
+[597.98s - 601.98s] značajno pomeri i konkretno ovi brojevi koji su ovde važe za 2024. godinu,
+[602.98s - 608.98s] gde je crta za samofinansiranje za budžet za elektrotehniku i računarstvo pala sa 400-og na 547-o,
+[609.98s - 612.98s] a za samofinansiranje na 829-o mesto,
+[613.98s - 619.98s] i za softvarsko inženjerstvo crta se pomerila na 31-o mesto za budžet, a na 700-u za samofinansiranje.
+[620.98s - 624.98s] Mi smo ovde pridruženo stavili informacije o broju bodova koje imaju kandidati,
+[624.98s - 631.98s] međutim, takve informacije nisu baš mnogo reprezentativne jer u slučaju da neke godine ispit bude teži ili lakši,
+[632.98s - 639.98s] jednostavno svi poeni su ukupno manji ili veći, dakle ovi rangovi su nešto što vama može najpred da pokaže kako se kotirate.
+[640.98s - 648.98s] Ovde smo stavili i statistiku u prethodnih šest godina, dakle da vidite da ipak ti rangovi se kreću u nekom određenom obsegu.
+[649.98s - 652.98s] Naravno, najmanje se pomera rang za ESI budžet,
+[652.98s - 658.98s] s obzirom da ima i samo 30 budžetskih mesta pa je dosta traženo, a najviše se pomera za ESI samofinansiranje.
+[659.98s - 664.98s] Ovu istu informaciju čini mi se da možete da nađete i na onom sajtu koji je posvećen prijemnom ispitu,
+[665.98s - 672.98s] tako da to je neka relevantna informacija koju treba da gledate ako ste nastrpljivi da vidite kako se kotirate u odnosu na prethodne godine.
+[673.98s - 678.98s] Što se tiče studijskog programa Elektrotehnika i računarstvo, prva godina je zajednička,
+[679.98s - 681.98s] dakle tek u drugoj se biraju odseci,
+[681.98s - 686.98s] u kojoj se polažete te neke predmete koji su, ajde da kažem, uopšteni i neophodni kao vaša osnova,
+[687.98s - 690.98s] a to su matematika, osnova elektrotehnike, programiranje i fizika,
+[691.98s - 696.98s] i naravno neki manji predmeti koji se biraju u vidu laboratorijskih vežbi ili stranog jezika.
+[699.26s - 702.26s] A nakon završene prve godine vi zapravo birate svoj odsek.
+[703.26s - 706.26s] Kako se formira ta rang lista po kojoj se gleda ko upada na koji odsek?
+[707.26s - 710.26s] Pa za svakog studenta se formira jedan koeficijent,
+[711.26s - 713.26s] koji uzima u obzir i sa kojom ocenom se učinite,
+[714.26s - 716.26s] u kojom ste položili ispit i u kom roku,
+[717.26s - 720.26s] a zatim vi izrazite vaše želje za smerove i onda dobijete, konačno vidite gde ste upali.
+[721.26s - 725.26s] Mi imamo odsek za energetiku, odsek za elektroniku i digitalne sisteme,
+[726.26s - 729.26s] odsek za računostku tehniku i informatiku, za signale i sisteme,
+[730.26s - 733.26s] telekomunikacije i informacijone tehnologije i odsek za fizičku elektroniku.
+[734.26s - 737.26s] Ako vas bude zanimalo nešto više o tome šta se na kom odseku radi
+[738.26s - 740.26s] ili šta se radi konkretno na odsecima sa kojih smo ja i profesor Dražan,
+[741.26s - 742.26s] možete slobodno da pitate posle.
+[744.26s - 746.26s] Drugi studijski program je softvarsko inženjerstvo,
+[747.26s - 751.26s] dakle nakon završene četiri godine vi izlazite sa titulom diplomiranog inženjera softvera
+[752.26s - 755.26s] i neke podoblasti koje se izučavaju su projektovanje i testiranje softvera,
+[756.26s - 760.26s] informacijoni sistemi, velike baze podataka, internet i mobilne tehnologije,
+[761.26s - 765.26s] inteligentni sistemi i zaštita podataka i elektronsko poslovanje i start-up preduzetništvo.
+[766.26s - 770.26s] Na ESI-u su pedavanja takva da su u grupama do 60 studenta,
+[771.26s - 772.26s] što znači da su interaktivna i praktično dozvoljna,
+[773.26s - 777.26s] znači da su grupe tako ofarmljene da profesor na neki način može da se posveti svakome
+[778.26s - 783.26s] i laboratorijske vežbe su takve da su u grupama do 30 studenta pa svako ima svoj računar na raspolaganju
+[784.26s - 790.26s] i tokom čitavog semestra se vrednuju različiti projekti, domaći zadaci, kolokviumi
+[791.26s - 795.26s] i ono što, ajde da kažem, donekle razlikuje softvarsko inženjerstvo od elektrotehnike i računarstva
+[796.26s - 799.26s] jeste to što je gradivo podeljeno uglavnom u tri kolokviuma,
+[800.26s - 802.26s] dakle još malo je izdeljeno više gradivo,
+[803.26s - 806.26s] što će se, verovatno, i lakše zaskupljati poene tokom čitavog semestra.
+[808.96s - 810.96s] Prva godina liči na prvu godinu sa elektrotehnike i računarstva,
+[811.96s - 814.96s] ali razlikuje se u tome što nemate osnove elektrotehnike
+[815.96s - 820.96s] i, naravno, veći je akcenat na programiranju pa imate nekakve dodatne praktikume iz programiranja 1 i 2.
+[821.96s - 825.96s] Ne bih išla u detalje oko ovih predmeta, ovo je nešto što postoji kao informacija na sajtu ETF,
+[826.96s - 832.96s] a jednostavno sam htela da slikovito predstavimo razliku između ova dva sudjiska programa na prvoj godini.
+[832.96s - 836.96s] Što se tiče nekakvih dodatnih sadržaja van same naše zgrade fakulteta,
+[837.96s - 843.96s] od 2024. godine ETF na raspolaganju ima i zgradu Palate nauke koja se nalazi u Kralja Milana
+[844.96s - 849.96s] i tu imamo savremeno opremen laboratorijski prostor za različite oblasti kojima se bavimo,
+[850.96s - 854.96s] imamo nekakvih 19 različitih naučnih centara koje vode predavači ETF-a
+[855.96s - 859.96s] i praktično ovde nam je omogućeno i da neke nastavne aktivnosti vršimo na bolji način,
+[860.96s - 861.96s] uz bolju opremu i neka istraživanja.
+[862.96s - 865.96s] kojima studenti žele da se bave van same nastave.
+[868.20s - 871.20s] Poslednja stvar koja vjerovatno sve zanima jeste da li se na ETF-u samo uči
+[872.20s - 875.20s] i svako ko je završio ETF može da potvrdi da to nije tako
+[876.20s - 881.20s] i da postoje razni sadržaj koji su namenjeni tome da se vi povežete sa vašim kolegama u čitavom regionu
+[882.20s - 889.20s] i jedan takav događaj je elektrijada koji je zapravo takmičenje u znanju i sportu studenta elektrotehnike i računarstva iz regiona.
+[890.20s - 893.20s] Dakle možete da se prijavite da se takmičite iz bilo kog sporta
+[894.20s - 897.20s] na naučne oblasti, a možete da idete kao turista da se družite.
+[898.20s - 905.20s] Mi na selektrijade odnosimo pobedu već deseta godina unazada, možda i više, tako da veoma smo ponosni na to dostignutje.
+[907.61s - 911.61s] Postoji neki sadržaj koji vama kao Brucošu mogu da olakšaju prvu godinu.
+[912.61s - 917.61s] Jedan od takvih sadržaja je vodiče za Brucoše, Brucko, koji organizuje Studentska unija,
+[918.61s - 923.61s] a drugi sadržaj koji takođe može da vam bude od koristi jeste projekat Student Mentor, odnosno
+[923.61s - 930.61s] grupice od recimo šest, sedam Brucoša dobiju svog studenta mentora koji je kolega sa starijih godina
+[931.61s - 940.61s] i on je tu da vam odgovari na neka pitanja vezana za stvari koje ne znate, za neke stvari oko funkcionisanja koje možda još uvek niste imali prilike da saznate.
+[941.61s - 945.61s] Aha, evo profesor Dražen je napisao nešto u chatu pa ću sad pročitati, kaže
+[946.61s - 952.61s] Informacija od profesorke matematike sa ETF od jutros, poslednja grupa za pripremnu nastavu se formira ovih dana,
+[952.61s - 959.61s] tako da ko želi da se priprema u grupe na našem fakultetu, sad je pravo vreme da krenete u pripreme ako ste maturant koji želi da polaže matematiku.
+[960.61s - 968.61s] Dakle i dalje nisu završene, nije i dalje završeno uformljavanje grupa za pripremnu nastavu, tako da i dalje imate prilike da se priključite. Hvala profesore.
+[969.61s - 981.61s] Dakle pored projekta Student Mentor, naši studenti imaju pristup i sajmu poslova i seminar u mekih veština i različite studentske organizacije organizuju nekakve grupne časove pripreme za Brucoše,
+[982.61s - 991.61s] odnosno časove koje vama treba da pomognu da savladate neke velike ispite u prvoj godini. I naši studenti imaju različite prostorije na raspolaganju.
+[992.61s - 1001.61s] Ja ću pomenuti jednu od njih koja je računski centar, dakle imate pristup računarima 24 sata dnevno i to je mnogo korisno za naše studente,
+[1002.61s - 1007.61s] zato što praktično na neki način vam uvek daje mesto gde možete da odete i da učite u mirovi držini.
+[1013.92s - 1016.92s] U podnožju našeg fakulteta nalazi se klub studenta tehnike.
+[1017.92s - 1025.92s] I to je nešto što preko dana funkcioniše kao kafić, a često se uveče organizuju koncerti, žurke, različite plesne večeri,
+[1026.92s - 1035.92s] gde je cena pića uvek studentska i svake godine se organizuje tradicionalni KST maskembal, dakle ove godine je 50 godine od održavanja prvog maskembala
+[1036.92s - 1046.92s] i čitav naš fakultet se transformiše u nekakvu veliku žurku gde u različitim učionicama imate različite bine, dolaze nam bitni izvođači iz naše pop kulture,
+[1047.92s - 1051.92s] tako da verujem da ćete sa uživanjem biti deo i ovakvog jednog događaja.
+[1052.92s - 1058.92s] Takođe novogodišnji fakultet organizuje se u decembru i pozvani su svi nastavnici, studenti i bivši studenti.
+[1059.92s - 1068.94s] Pored nastavnih aktivnosti, ukoliko naši studenti žele da se bave istraživanjima, mi naravno njih vodimo i na različite konferencije.
+[1069.94s - 1073.94s] ETF je organizator internacionalnih konferencija TELFOR i ETRAN.
+[1074.94s - 1077.94s] Osim konferencija često idemo na različite takmičenja.
+[1077.94s - 1084.94s] Trebalo bi da pomenemo naš H-bridges tim, odnosno tim studenta sa ETF-a koji se bavi energetskom elektronikom
+[1085.94s - 1092.94s] i koji svake godine ostvara zapažan rezultat na svetskom takmičenju, a konkretno 2019. su bili i prvi.
+[1096.02s - 1098.02s] Hvala na pažnji, to je sve od nas.

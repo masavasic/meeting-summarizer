@@ -6,6 +6,7 @@ from processing.vad import detect_speech
 from processing.transcription import transcribe_audio
 from processing.transcript_cleaner import clean_transcript
 from processing.summarization_gemma import summarize_transcript_file
+from processing.pdf_report import generate_pdf_report
 
 
 AUDIO_PATH = "audio/etf-predstavljanje.wav"
@@ -15,6 +16,7 @@ CLEAN_TRANSCRIPT_PATH = "outputs/transcript_clean.txt"
 SUMMARY_PATH = "outputs/summary_gemma.txt"
 SUMMARY_JSON_PATH = "outputs/summary_gemma.json"
 SUMMARY_DEBUG_PATH = "outputs/summary_gemma_debug.json"
+PDF_REPORT_PATH = "outputs/meeting_report.pdf"
 
 
 def create_output_directories() -> None:
@@ -24,6 +26,7 @@ def create_output_directories() -> None:
         SUMMARY_PATH,
         SUMMARY_JSON_PATH,
         SUMMARY_DEBUG_PATH,
+        PDF_REPORT_PATH,
     ]
 
     for path in paths:
@@ -52,30 +55,37 @@ def run_pipeline(audio_path: str) -> None:
     print(f"Audio fajl: {audio_path}")
     print()
 
-    print("[1/4] Detekcija govora...")
+    print("[1/5] Detekcija govora...")
     detect_speech(audio_path)
 
     print()
-    print("[2/4] Transkripcija...")
+    print("[2/5] Transkripcija...")
     transcribe_audio(
         audio_path=audio_path,
         output_path=TRANSCRIPT_PATH,
     )
 
     print()
-    print("[3/4] Čišćenje transkripta...")
+    print("[3/5] Čišćenje transkripta...")
     clean_transcript(
         input_path=TRANSCRIPT_PATH,
         output_path=CLEAN_TRANSCRIPT_PATH,
     )
 
     print()
-    print("[4/4] Sumarizacija...")
+    print("[4/5] Sumarizacija...")
     summarize_transcript_file(
         input_path=CLEAN_TRANSCRIPT_PATH,
         output_path=SUMMARY_PATH,
         json_output_path=SUMMARY_JSON_PATH,
         debug_path=SUMMARY_DEBUG_PATH,
+    )
+
+    print()
+    print("[5/5] Generisanje PDF sažetka...")
+    generate_pdf_report(
+        summary_json_path=SUMMARY_JSON_PATH,
+        output_pdf_path=PDF_REPORT_PATH,
     )
 
     elapsed_time = time.time() - start_time
@@ -89,6 +99,7 @@ def run_pipeline(audio_path: str) -> None:
     print(f"Sažetak: {SUMMARY_PATH}")
     print(f"JSON sažetak: {SUMMARY_JSON_PATH}")
     print(f"Debug podaci: {SUMMARY_DEBUG_PATH}")
+    print(f"PDF sažetak: {PDF_REPORT_PATH}")
     print(
         f"Ukupno vreme obrade: "
         f"{elapsed_time:.2f} sekundi"
