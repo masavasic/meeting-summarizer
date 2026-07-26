@@ -1,0 +1,33 @@
+- [GLAVNE_TEME]
+- Elektrotehnički fakultet u Beogradu
+- Različite oblasti studiranja (energija, komunikacije, robotika, biomedicina, softversko inženjerstvo)
+- Bolonjska deklaracija
+- Partnerstvo sa firmama (Microsoft, Siemens, Bosch, Cisco, Nvidia, Nordeus, Huawei, Telekom)
+- Prakse i poslove u firmama
+- Veštačka inteligencija i rad sa bazama podataka
+- Radni uslovi (nove tehnologije, profesionalno usavršavanje, mogućnost rada od kuće, putovanja u inostranstvo)
+- Plaćanje (početna plata od 1.200 evra, brze napredovanje, povišice na polugodišnjem/godišnjem nivou)
+- Međunarodno tržište rada
+
+- [VAZNE_INFORMACIJE]
+- 480-500 studenata diplomira godišnje
+- Studiranje usklađeno sa Bolonjskom deklaracijom
+- Ispiti su jednosemestralni
+- Prijemni ispit zahteva matematiku ili fiziku
+- Oslobođenje prijemnog ispita za takmičare (matematika/fizika)
+- 60% bodova iz prijemnog ispita, 40% bodova iz srednje škole
+- Prosječna ocena iz srednje škole x 2
+- Početna plata od 1.200 evra
+
+- [BROJEVI_I_DATUMI]
+- 15-20 minuta (predstavljanje)
+- 480-500 studenata (godišnje diplomira)
+- 1.200 evra (početna plata)
+
+- [AKCIONE_STAVKE]
+- Predstaviti fakultet
+- Diskutovati o motivaciji za upis
+- Razgovarati o različitim oblastima studiranja
+
+- [NEJASNI_DELOVI]
+- "nekih dodatnih pitanja tu smo da odgovarimo" (nejasno ko treba da odgovara)

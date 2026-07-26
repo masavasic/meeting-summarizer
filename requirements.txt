@@ -7,3 +7,4 @@ transformers
 sentencepiece
 accelerate
 bitsandbytes
+sacremoses
