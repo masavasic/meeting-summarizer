@@ -1,7 +1,7 @@
-Elektrotehnički fakultet u Beogradu – Uputnica za studente
+Kineska veštačka inteligencija i globalna konkurencija
 
-[PREZENTACIJA]
-Predstavljanje programa studiranja i mogućnosti za buduće studente.
+[VRSTA_SADRŽAJA]
+predavanje, sastanak
 
 [KRATAK_PREGLED]
-Elektrotehnički fakultet u Beogradu nudi širok spektar oblasti studiranja, uključujući energiju, komunikacije, robotiku, biomedicinu i softversko inženjerstvo. Fakultet se fokusira na usklađivanje studiranja sa Bolonjskom deklaracijom i aktivno sarađuje sa vodećim firmama kao što su Microsoft, Siemens i Huawei. Studenti mogu očekivati praksu u kompanijama, učenje veštačke inteligencije i rada sa bazama podataka, te povoljne radne uslove, uključujući mogućnost rada od kuće i putovanja. Prijamni ispit je zahtevan, ali i postoje značajne mogućnosti za početnu platu od 1.200 evra i brze napredovanje u karijeri. Fakultet godišnje diplomira oko 480-500 studenata, a proces prijema se odvija u junu, sa budžetskim i samofinansirajućim mestima dostupnim za različite oblasti studiranja.
+Predavanje se fokusira na rastuću kinesku veštačku inteligenciju, posebno na modele kao što su DeepSeek i Kimi K3, koji pokazuju značajne prednosti u performansama i cenovnim aspektima u odnosu na američke komercijalne modele. Ističe se konkurencija između Kine i Sjedinjenih Držina u ovoj oblasti, gde su obe zemlje planirale značajne investicije u industriju veštačke inteligencije, oko 700 milijardi dolara. Kina ima potencijal da kontroliše pristup sirovinama za razvoj čipova, dok Amerika koristi zabranu izvoza i pretnje taksama. Kina je postigla rekordni izvoz veštačke inteligencije, dostignut u junu, a globalno širenje veštačke inteligencije se dešava i u jugoistočnoj Aziji. Sastanak lidera Kine i Amerike zakazan je za 24. septembar, što ukazuje na geopolitičke tenzije u vezi sa ovom industrijom.

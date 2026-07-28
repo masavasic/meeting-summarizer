@@ -495,29 +495,91 @@ BELEŠKE:
 
     @classmethod
     def parse_section_output(
-        cls,
-        text: str,
-        expected_sections: list[str],
+            cls,
+            text: str,
+            expected_sections: list[str],
     ) -> dict[str, list[str]]:
         result: dict[str, list[str]] = {
             section: []
             for section in expected_sections
         }
 
-        text = cls.normalize_text(text)
-        if not text:
+        normalized_text = cls.normalize_text(text)
+
+        if not normalized_text:
             raise ValueError("Model je vratio prazan odgovor.")
 
+        # Gemma ponekad vrati JSON umesto formata:
+        # [GLAVNE_TEME]
+        # - stavka
+        json_text = normalized_text.strip()
+
+        # Uklanjanje Markdown oznaka ```json i ```
+        json_text = re.sub(
+            r"^```(?:json)?\s*",
+            "",
+            json_text,
+            flags=re.IGNORECASE,
+        )
+        json_text = re.sub(
+            r"\s*```$",
+            "",
+            json_text,
+        )
+
+        # Prvo pokušava parsiranje JSON odgovora
+        try:
+            parsed_json = json.loads(json_text)
+
+            if isinstance(parsed_json, dict):
+                for section in expected_sections:
+                    value = parsed_json.get(section, [])
+
+                    if isinstance(value, list):
+                        cleaned_items: list[str] = []
+
+                        for item in value:
+                            clean_item = cls.normalize_text(
+                                str(item)
+                            )
+
+                            if clean_item:
+                                cleaned_items.append(clean_item)
+
+                        result[section] = cleaned_items
+
+                    elif isinstance(value, str):
+                        clean_value = cls.normalize_text(value)
+
+                        if clean_value and clean_value.casefold() not in {
+                            "nema",
+                            "nema stavki",
+                            "nema izdvojenih stavki",
+                        }:
+                            result[section] = [clean_value]
+
+                # Ako je pronađena makar jedna stavka,
+                # JSON je uspešno obrađen
+                if any(result.values()):
+                    return result
+
+        except json.JSONDecodeError:
+            pass
+
+        # Ako odgovor nije JSON, koristi se stari parser
         current_section: str | None = None
 
-        for raw_line in text.splitlines():
+        for raw_line in normalized_text.splitlines():
             line = raw_line.strip()
+
             if not line:
                 continue
 
             section_match = cls.SECTION_PATTERN.fullmatch(line)
+
             if section_match:
                 section_name = section_match.group(1)
+
                 current_section = (
                     section_name
                     if section_name in result
@@ -528,7 +590,12 @@ BELEŠKE:
             if current_section is None:
                 continue
 
-            line = re.sub(r"^[-*•]\s*", "", line).strip()
+            line = re.sub(
+                r"^[-*•]\s*",
+                "",
+                line,
+            ).strip()
+
             if not line:
                 continue
 

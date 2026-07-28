@@ -1,53 +1,26 @@
-- [GLAVNE_TEME]
-- prijemni ispit, upis, budžetska i samofinansirajuća mesta, statistika, rang liste, studijski programi
+[GLAVNE_TEME]
+- kineska veštačka inteligencija
+- kineski izvoz
+- kineska kulturna dominacija
+- geopolitika
 
-- [VAZNE_INFORMACIJE]
-- oktobar (početak formiranja grupa)
-- probni testovi/pripremne testove
-- skriptarnica ETF-a
-- sajt prijemni.etf.bgacrs
-- maj (elektronski prijavljivanje)
-- jun (konačna prijava i prijemni ispit)
-- 2024. godina (za statistiku)
-- 400 budžetskih mesta (elektrotehnika i računarstvo)
-- 140 samofinansirajućih mesta (elektrotehnika i računarstvo)
-- 30 budžetskih mesta (softvarsko inženjerstvo)
-- 150 samofinansirajućih mesta (softvarsko inženjerstvo)
-- 144.000 dinara (školarina za samofinansiranje)
-- 282.000 dinara (školarina za softvarsko inženjerstvo)
-- 547-o mesto (samofinansiranje za elektrotehniku i računarstvo, 2024)
-- 829-o mesto (samofinansiranje za elektrotehniku i računarstvo, 2024)
-- 31-o mesto (samofinansiranje za softvarsko inženjerstvo, 2024)
-- 400-og na 547-om mestu (samofinansiranje za elektrotehniku i računarstvo, 2024)
-- 829-og mesta (samofinansiranje za elektrotehniku i računarstvo, 2024)
-- 31-og mesta (samofinansiranje za softvarsko inženjerstvo, 2024)
-- koeficijent (formiranje rang liste)
-- matematika, fizika, programiranje, osnova elektrotehnike, strani jezik, laboratorijske vežbe
-- energetika, elektronika, digitalne sisteme, računarska tehniku, informatika, signali i sistemi, telekomunikacije, informacijone tehnologije, fizička elektronika
-- softvarsko inženjerstvo, projektovanje i testiranje softvera, informacijioni sistemi, velike baze podataka, internet i mobilne tehnologije, inteligentni sistemi, zaštita podataka, elektronsko poslovanje, start-up preduzetništvo
+[VAZNE_INFORMACIJE]
+- Kina je postigla rekordni izvoz veštačke inteligencije u junu (125,6 milijardi dolara)
+- Izvoz veštačke inteligencije je porastao u jugoistočnoj Aziji (Tajland, Vjetnam, Indonezija)
+- Kina eksportuje veštačku inteligenciju u preko 70-80% zemalja sveta
+- Sastanak Xi Jinpinga i Trumpa zakazan je za 24. septembar
 
-- [BROJEVI_I_DATUMI]
-- oktobar (početak formiranja grupa)
-- 2024. godina (za statistiku)
-- 400 (budžetska mesta - elektrotehnika i računarstvo)
-- 140 (samofinansirajućih mesta - elektrotehnika i računarstvo)
-- 30 (budžetska mesta - softvarsko inženjerstvo)
-- 150 (samofinansirajućih mesta - softvarsko inženjerstvo)
-- 144.000 dinara (školarina za samofinansiranje)
-- 282.000 dinara (školarina za softvarsko inženjerstvo)
-- 547-o mesto (samofinansiranje za elektrotehniku i računarstvo, 2024)
-- 829-o mesto (samofinansiranje za elektrotehniku i računarstvo, 2024)
-- 31-o mesto (samofinansiranje za softvarsko inženjerstvo, 2024)
+[BROJEVI_I_DATUMI]
+- 125,6 milijardi dolara (izvoz veštačke inteligencije u junu)
+- 24. septembar (sastanak Xi Jinpinga i Trumpa)
 
-- [ZAKLJUCCI]
-- Uspoređena su budžetska i samofinansirajuća mesta, kao i školarine za različite smerove.
-- Statistika iz 2024. godine se smatra manje pouzdanom zbog blokada.
-- Rangovi se kreću u određenom obimu, ali se ESI budžet i samofinansiranje najviše menjaju.
+[ZAKLJUCCI]
+- Kina se fokusira na plasiranje kulturnih i tehnoloških sadržaja na globalnom nivou.
+- Veštačka inteligencija postaje sve popularnija u zemljama "globalnog juga".
+- Sastanak Xi Jinpinga i Trumpa će se baviti temama veštačke inteligencije.
 
-- [AKCIONE_STAVKE]
-- elektronski prijaviti se (maj)
-- doći na elektrotehničke fakultete (jun)
-- pratite sve relevantne informacije (nakon prijemnog ispita)
+[AKCIONE_STAVKE]
+- Nema akcione stavke
 
-- [NEJASNI_DELOVI]
-- "blokada i svega statistika u ovaj način odskače od one uobičajene" (nejas
+[NEJASNI_DELOVI]
+- "tržačne ekonomije" (verovatno greška transkripcije, trebalo bi biti "tržne ekonomije")

@@ -1,33 +1,36 @@
-- [GLAVNE_TEME]
-- Elektrotehnički fakultet u Beogradu
-- Različite oblasti studiranja (energija, komunikacije, robotika, biomedicina, softversko inženjerstvo)
-- Bolonjska deklaracija
-- Partnerstvo sa firmama (Microsoft, Siemens, Bosch, Cisco, Nvidia, Nordeus, Huawei, Telekom)
-- Prakse i poslove u firmama
-- Veštačka inteligencija i rad sa bazama podataka
-- Radni uslovi (nove tehnologije, profesionalno usavršavanje, mogućnost rada od kuće, putovanja u inostranstvo)
-- Plaćanje (početna plata od 1.200 evra, brze napredovanje, povišice na polugodišnjem/godišnjem nivou)
-- Međunarodno tržište rada
-
-- [VAZNE_INFORMACIJE]
-- 480-500 studenata diplomira godišnje
-- Studiranje usklađeno sa Bolonjskom deklaracijom
-- Ispiti su jednosemestralni
-- Prijemni ispit zahteva matematiku ili fiziku
-- Oslobođenje prijemnog ispita za takmičare (matematika/fizika)
-- 60% bodova iz prijemnog ispita, 40% bodova iz srednje škole
-- Prosječna ocena iz srednje škole x 2
-- Početna plata od 1.200 evra
-
-- [BROJEVI_I_DATUMI]
-- 15-20 minuta (predstavljanje)
-- 480-500 studenata (godišnje diplomira)
-- 1.200 evra (početna plata)
-
-- [AKCIONE_STAVKE]
-- Predstaviti fakultet
-- Diskutovati o motivaciji za upis
-- Razgovarati o različitim oblastima studiranja
-
-- [NEJASNI_DELOVI]
-- "nekih dodatnih pitanja tu smo da odgovarimo" (nejasno ko treba da odgovara)
+```json
+{
+"GLAVNE_TEME": [
+"Kineska veštačka inteligencija",
+"Konkurencija sa Sjedinjenim Državama",
+"Uticaj na američku industriju veštačke inteligencije"
+],
+"VAZNE_INFORMACIJE": [
+"Nova kineska veštačka inteligencija (DeepSeek) je 10% bolja od američkih modela po određenim parametrima.",
+"Kineski model Kimi K3 je 50-70% jeftiniji od američkih.",
+"Američke kompanije planiraju da ulože oko 700 milijardi dolara u industriju veštačke inteligencije ove godine.",
+"Sjedinjene Držine planiraju da uložile oko 700 milijardi dolara u industriju veštačke inteligencije ove godine.",
+"Kina ima kapacitet da ograniči pristup sirovinama za razvoj čipova.",
+"Amerika je uvelo zabranu izvoza čipova i pretnje taksama Kini.",
+"Kina se oslanja na domaće kapacitete za razvoj veštačke inteligencije."
+],
+"BROJEVI_I_DATUMI": [
+"24. septembra",
+"700 milijardi dolara (ulog u industriju veštačke inteligencije u Sjedinjenim Državama)",
+"10% (razlika u performansama između kineskih i američkih modela)",
+"50-70% (cene kineskih modela u odnosu na američke)",
+"šest domena ili sedam parametara (prednosti Kimi K3)"
+],
+"ZAKLJUCCI": [
+"Kineska veštačka inteligencija predstavlja značajnu konkurenciju Sjedinjenim Državama.",
+"Potencijalni krajobraz veštačke inteligencije u budućnosti je neizvestan.",
+"Globalna ekonomija je zavisna od međuzavisnosti globalne ekonomije i najvećih karakter na nivou globalne ekonomije."
+],
+"AKCIONE_STAVKE": [
+"Xi Jinping trebalo da dođe u Belu kuću na sastanak sa Donaldom Trumpom (24. septembra)"
+],
+"NEJASNI_DELOVI": [
+"„propadanje“ akcija – da li se pod „propadanjem“ misli na pad vrednosti ili gubitak profitnosti?"
+]
+}
+```
