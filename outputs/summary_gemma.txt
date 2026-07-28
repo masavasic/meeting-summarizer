@@ -1,53 +1,29 @@
 NASLOV
-Kineska veštačka inteligencija.
+dobrobit govornika.
 
 VRSTA SADRŽAJA
 drugo
 
 KRATAK PREGLED
-Predavanje se fokusira na rastuću kinesku veštačku inteligenciju, posebno na modele kao što su DeepSeek i Kimi K3, koji pokazuju značajne prednosti u performansama i cenovnim aspektima u odnosu na američke komercijalne modele. Ističe se konkurencija između Kine i Sjedinjenih Držina u ovoj oblasti, gde su obe zemlje planirale značajne investicije u industriju veštačke inteligencije, oko 700 milijardi dolara. Kina ima potencijal da kontroliše pristup sirovinama za razvoj čipova, dok Amerika koristi zabranu izvoza i pretnje taksama. Kina je postigla rekordni izvoz veštačke inteligencije, dostignut u junu, a globalno širenje veštačke inteligencije se dešava i u jugoistočnoj Aziji. Sastanak lidera Kine i Amerike zakazan je za 24. septembar, što ukazuje na geopolitičke tenzije u vezi sa ovom industrijom.
+Komunikacija i motivacija programera predavanje Kratak pregled: Predavanje se fokusira na dobrobit govornika kao ključni faktor za efikasnu komunikaciju. Ističe se važnost razumevanja razloga za nedostatak nakletnosti kod govornika, što može biti povezano sa njegovim pozicijama kao programera. Predavanje obuhvata važne informacije o aplikaciji koja radi dobro, ukazujući na pozitivne rezultate rada programera. Cilj je identifikovati i poboljšati elemente koje doprinose uspešnoj komunikaciji i motivaciji u programerskoj oblasti.
 
 GLAVNE TEME
-- Kineska veštačka inteligencija.
-- Konkurencija sa Sjedinjenim Državama.
-- Uticaj na američku industriju veštačke inteligencije.
-- kineski izvoz.
-- kineska kulturna dominacija.
-- geopolitika.
+- dobrobit govornika.
+- razlog za nedostatak nakletnosti.
 
 VAŽNE INFORMACIJE
-- Nova kineska veštačka inteligencija (DeepSeek) je 10% bolja od američkih modela po određenim parametrima.
-- Kineski model Kimi K3 je 50-70% jeftiniji od američkih.
-- Američke kompanije planiraju da ulože oko 700 milijardi dolara u industriju veštačke inteligencije ove godine.
-- Sjedinjene Držine planiraju da uložile oko 700 milijardi dolara u industriju veštačke inteligencije ove godine.
-- Kina ima kapacitet da ograniči pristup sirovinama za razvoj čipova.
-- Amerika je uvelo zabranu izvoza čipova i pretnje taksama Kini.
-- Kina se oslanja na domaće kapacitete za razvoj veštačke inteligencije.
-- Kina je postigla rekordni izvoz veštačke inteligencije u junu (125,6 milijardi dolara).
-- Izvoz veštačke inteligencije je porastao u jugoistočnoj Aziji (Tajland, Vjetnam, Indonezija).
-- Kina eksportuje veštačku inteligenciju u preko 70-80% zemalja sveta.
-- Sastanak Xi Jinpinga i Trumpa zakazan je za 24. septembar.
+- govornik je programer.
+- aplikacija radi dobro.
 
 BROJEVI I DATUMI
-- 24. septembra.
-- 700 milijardi dolara (ulog u industriju veštačke inteligencije u Sjedinjenim Državama).
-- 10% (razlika u performansama između kineskih i američkih modela).
-- 50-70% (cene kineskih modela u odnosu na američke).
-- šest domena ili sedam parametara (prednosti Kimi K3).
-- 125,6 milijardi dolara (izvoz veštačke inteligencije u junu).
-- 24. septembar (sastanak Xi Jinpinga i Trumpa).
+- Nema izdvojenih stavki.
 
 ZAKLJUČCI
-- Kineska veštačka inteligencija predstavlja značajnu konkurenciju Sjedinjenim Državama.
-- Potencijalni krajobraz veštačke inteligencije u budućnosti je neizvestan.
-- Globalna ekonomija je zavisna od međuzavisnosti globalne ekonomije i najvećih karakter na nivou globalne ekonomije.
-- Kina se fokusira na plasiranje kulturnih i tehnoloških sadržaja na globalnom nivou.
-- Veštačka inteligencija postaje sve popularnija u zemljama "globalnog juga".
-- Sastanak Xi Jinpinga i Trumpa će se baviti temama veštačke inteligencije.
+- Nema izdvojenih stavki.
 
 AKCIONE STAVKE
 - Nema izdvojenih stavki.
 
 NEJASNI DELOVI TRANSKRIPTA
-- „propadanje“ akcija – da li se pod „propadanjem“ misli na pad vrednosti ili gubitak profitnosti?.
-- "tržačne ekonomije" (verovatno greška transkripcije, trebalo bi biti "tržne ekonomije").
+- "pinit programer" - nejasno što se pod "pinit" podrazumeva.
+- "sumarizacija O, naša majka?" - nejasno značenje "O, naša majka".

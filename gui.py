@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+from processing.live_recorder import LiveRecorder
 
 from PyQt5.QtCore import QProcess, QProcessEnvironment, Qt, pyqtSignal
 from PyQt5.QtGui import QFont
@@ -132,6 +133,13 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.audio_path = ""
+        self.is_recording = False
+
+        self.recorder = LiveRecorder(
+            device=1,
+            sample_rate=44100,
+            channels=2,
+        )
         self.process = QProcess(self)
 
         self.process.setProcessChannelMode(
@@ -205,7 +213,7 @@ class MainWindow(QMainWindow):
         left_layout.setContentsMargins(26, 26, 26, 26)
         left_layout.setSpacing(18)
 
-        step_label = QLabel("1. Izaberi audio-snimak")
+        step_label = QLabel("1. Izaberi ili snimi audio")
         step_label.setObjectName("sectionTitle")
 
         self.drop_area = DropArea()
@@ -231,6 +239,24 @@ class MainWindow(QMainWindow):
 
         button_layout.addWidget(self.choose_button)
         button_layout.addWidget(self.start_button)
+        recording_button_layout = QHBoxLayout()
+        recording_button_layout.setSpacing(12)
+
+        self.record_button = QPushButton("Pokreni snimanje")
+        self.record_button.setObjectName("secondaryButton")
+        self.record_button.clicked.connect(
+            self.start_recording
+        )
+
+        self.stop_record_button = QPushButton("Zaustavi snimanje")
+        self.stop_record_button.setObjectName("secondaryButton")
+        self.stop_record_button.setEnabled(False)
+        self.stop_record_button.clicked.connect(
+            self.stop_recording
+        )
+
+        recording_button_layout.addWidget(self.record_button)
+        recording_button_layout.addWidget(self.stop_record_button)
 
         progress_title = QLabel("Status obrade")
         progress_title.setObjectName("sectionTitle")
@@ -258,6 +284,7 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(step_label)
         left_layout.addWidget(self.drop_area)
         left_layout.addLayout(button_layout)
+        left_layout.addLayout(recording_button_layout)
         left_layout.addSpacing(4)
         left_layout.addWidget(progress_title)
         left_layout.addLayout(status_row)
@@ -536,6 +563,117 @@ class MainWindow(QMainWindow):
             """
         )
 
+    def start_recording(self) -> None:
+        if self.process.state() != QProcess.NotRunning:
+            QMessageBox.warning(
+                self,
+                "Obrada je u toku",
+                "Sačekaj da se trenutna obrada završi.",
+            )
+            return
+
+        if self.is_recording:
+            return
+
+        try:
+            self.audio_path = ""
+            self.is_recording = True
+
+            self.recorder.start_recording()
+
+            self.choose_button.setEnabled(False)
+            self.drop_area.setEnabled(False)
+            self.start_button.setEnabled(False)
+            self.record_button.setEnabled(False)
+            self.stop_record_button.setEnabled(True)
+
+            self.set_status(
+                "Snimanje sa mikrofona je u toku...",
+                "running",
+            )
+
+            self.log_output.appendPlainText(
+                "\nSnimanje je pokrenuto. Govori u mikrofon..."
+            )
+
+        except Exception as error:
+            self.is_recording = False
+
+            self.choose_button.setEnabled(True)
+            self.drop_area.setEnabled(True)
+            self.record_button.setEnabled(True)
+            self.stop_record_button.setEnabled(False)
+
+            self.set_status(
+                "Snimanje nije moglo da se pokrene",
+                "error",
+            )
+
+            QMessageBox.critical(
+                self,
+                "Greška pri snimanju",
+                str(error),
+            )
+
+    def stop_recording(self) -> None:
+        if not self.is_recording:
+            return
+
+        try:
+            project_directory = Path(__file__).resolve().parent
+            output_path = (
+                    project_directory
+                    / "audio"
+                    / "live_recording.wav"
+            )
+
+            saved_audio_path = self.recorder.stop_recording(
+                str(output_path)
+            )
+
+            self.is_recording = False
+
+            self.choose_button.setEnabled(True)
+            self.drop_area.setEnabled(True)
+            self.record_button.setEnabled(True)
+            self.stop_record_button.setEnabled(False)
+
+            self.log_output.appendPlainText(
+                f"Snimanje je završeno.\n"
+                f"Snimak je sačuvan u:\n{saved_audio_path}"
+            )
+
+            # Automatski postavlja snimljeni WAV kao izabrani fajl.
+            self.set_audio_file(saved_audio_path)
+
+            QMessageBox.information(
+                self,
+                "Snimanje završeno",
+                (
+                    "Snimak je uspešno sačuvan.\n\n"
+                    "Sada možeš da klikneš "
+                    "'Pokreni obradu'."
+                ),
+            )
+
+        except Exception as error:
+            self.is_recording = False
+
+            self.choose_button.setEnabled(True)
+            self.drop_area.setEnabled(True)
+            self.record_button.setEnabled(True)
+            self.stop_record_button.setEnabled(False)
+
+            self.set_status(
+                "Greška prilikom završetka snimanja",
+                "error",
+            )
+
+            QMessageBox.critical(
+                self,
+                "Greška pri čuvanju snimka",
+                str(error),
+            )
     def set_audio_file(self, file_path: str) -> None:
         if not os.path.isfile(file_path):
             QMessageBox.warning(
@@ -775,10 +913,22 @@ class MainWindow(QMainWindow):
         )
 
     def set_controls_enabled(self, enabled: bool) -> None:
-        self.choose_button.setEnabled(enabled)
-        self.drop_area.setEnabled(enabled)
+        self.choose_button.setEnabled(
+            enabled and not self.is_recording
+        )
+        self.drop_area.setEnabled(
+            enabled and not self.is_recording
+        )
         self.start_button.setEnabled(
-            enabled and bool(self.audio_path)
+            enabled
+            and not self.is_recording
+            and bool(self.audio_path)
+        )
+        self.record_button.setEnabled(
+            enabled and not self.is_recording
+        )
+        self.stop_record_button.setEnabled(
+            self.is_recording
         )
 
     def set_status(self, text: str, state: str) -> None:

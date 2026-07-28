@@ -1,7 +1,5 @@
-Kineska veštačka inteligencija i globalna konkurencija
+Komunikacija i motivacija programera
+predavanje
 
-[VRSTA_SADRŽAJA]
-predavanje, sastanak
-
-[KRATAK_PREGLED]
-Predavanje se fokusira na rastuću kinesku veštačku inteligenciju, posebno na modele kao što su DeepSeek i Kimi K3, koji pokazuju značajne prednosti u performansama i cenovnim aspektima u odnosu na američke komercijalne modele. Ističe se konkurencija između Kine i Sjedinjenih Držina u ovoj oblasti, gde su obe zemlje planirale značajne investicije u industriju veštačke inteligencije, oko 700 milijardi dolara. Kina ima potencijal da kontroliše pristup sirovinama za razvoj čipova, dok Amerika koristi zabranu izvoza i pretnje taksama. Kina je postigla rekordni izvoz veštačke inteligencije, dostignut u junu, a globalno širenje veštačke inteligencije se dešava i u jugoistočnoj Aziji. Sastanak lidera Kine i Amerike zakazan je za 24. septembar, što ukazuje na geopolitičke tenzije u vezi sa ovom industrijom.
+Kratak pregled:
+Predavanje se fokusira na dobrobit govornika kao ključni faktor za efikasnu komunikaciju. Ističe se važnost razumevanja razloga za nedostatak nakletnosti kod govornika, što može biti povezano sa njegovim pozicijama kao programera. Predavanje obuhvata važne informacije o aplikaciji koja radi dobro, ukazujući na pozitivne rezultate rada programera. Cilj je identifikovati i poboljšati elemente koje doprinose uspešnoj komunikaciji i motivaciji u programerskoj oblasti.
