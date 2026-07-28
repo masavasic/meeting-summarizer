@@ -1,19 +1,23 @@
 NASLOV
-dobrobit govornika.
+Zdravo svima i dobrodošli u moj novi video
 
 VRSTA SADRŽAJA
-drugo
+razgovor
 
 KRATAK PREGLED
-Komunikacija i motivacija programera predavanje Kratak pregled: Predavanje se fokusira na dobrobit govornika kao ključni faktor za efikasnu komunikaciju. Ističe se važnost razumevanja razloga za nedostatak nakletnosti kod govornika, što može biti povezano sa njegovim pozicijama kao programera. Predavanje obuhvata važne informacije o aplikaciji koja radi dobro, ukazujući na pozitivne rezultate rada programera. Cilj je identifikovati i poboljšati elemente koje doprinose uspešnoj komunikaciji i motivaciji u programerskoj oblasti.
+Zdravo svima i dobrodošli u moj novi video.
+Ja sam Maša Vasić i sada se nalazim u sobi moje sestre Leme.
+Lena je moja mlađa sestra i mala je glupa.
+Hvala svima na pažnji. Vidimo se u sledećem videu.
 
 GLAVNE TEME
-- dobrobit govornika.
-- razlog za nedostatak nakletnosti.
+- Zdravo svima i dobrodošli u moj novi video.
 
 VAŽNE INFORMACIJE
-- govornik je programer.
-- aplikacija radi dobro.
+- Zdravo svima i dobrodošli u moj novi video.
+- Ja sam Maša Vasić i sada se nalazim u sobi moje sestre Leme.
+- Lena je moja mlađa sestra i mala je glupa.
+- Hvala svima na pažnji. Vidimo se u sledećem videu.
 
 BROJEVI I DATUMI
 - Nema izdvojenih stavki.
@@ -25,5 +29,4 @@ AKCIONE STAVKE
 - Nema izdvojenih stavki.
 
 NEJASNI DELOVI TRANSKRIPTA
-- "pinit programer" - nejasno što se pod "pinit" podrazumeva.
-- "sumarizacija O, naša majka?" - nejasno značenje "O, naša majka".
+- Nema izdvojenih stavki.

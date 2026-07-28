@@ -1,10 +1,9 @@
 [GLAVNE_TEME]
-- dobrobit govornika
-- razlog za nedostatak nakletnosti
+- Novi video
 
 [VAZNE_INFORMACIJE]
-- govornik je programer
-- aplikacija radi dobro
+- Ime voditelja: Maša
+- Ime sestre: Lena
 
 [BROJEVI_I_DATUMI]
 - Nema
@@ -13,8 +12,7 @@
 - Nema
 
 [AKCIONE_STAVKE]
-- snimanje različitih faza
+- Nema
 
 [NEJASNI_DELOVI]
-- "pinit programer" - nejasno što se pod "pinit" podrazumeva
-- "sumarizacija O, naša majka?" - nejasno značenje "O, naša majka"
+- Nema

@@ -1,35 +1,6 @@
 {
-  "model_name": "google/gemma-3-4b-it",
-  "chunks": [
-    {
-      "chunk_number": 1,
-      "source_text": "Kako si? Zašto ti skoro ne obiš tako nakleta i odbrutna? Baš si propoli programer? Ne, ja sam baš pinit programer Viš kako me lepo radi moja aplikacija i sad da snimamo različit naš fazbor da bih ja mogla da napravim sumarizaciju O, naša majka? Jel da? Ajde, ta!",
-      "source_token_count": 83,
-      "partial_summary": {
-        "glavne_teme": [
-          "dobrobit govornika",
-          "razlog za nedostatak nakletnosti"
-        ],
-        "vazne_informacije": [
-          "govornik je programer",
-          "aplikacija radi dobro"
-        ],
-        "brojevi_i_datumi": [],
-        "zakljucci": [],
-        "akcione_stavke": [
-          "snimanje različitih faza"
-        ],
-        "nejasni_delovi": [
-          "\"pinit programer\" - nejasno što se pod \"pinit\" podrazumeva",
-          "\"sumarizacija O, naša majka?\" - nejasno značenje \"O, naša majka\""
-        ]
-      }
-    }
-  ],
-  "number_check": {
-    "source_numbers": [],
-    "summary_numbers": [],
-    "added_numbers": [],
-    "has_invented_numbers": false
-  }
+  "mode": "short_live_transcript",
+  "gemma_used": false,
+  "reason": "Transkript je prekratak za pouzdanu LLM sumarizaciju.",
+  "source_transcript": "Zdravo svima i dobrodošli u moj novi video.\nJa sam Maša Vasić i sada se nalazim u sobi moje sestre Leme.\nLena je moja mlađa sestra i mala je glupa.\nHvala svima na pažnji. Vidimo se u sledećem videu."
 }

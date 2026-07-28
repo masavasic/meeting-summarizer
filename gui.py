@@ -1,9 +1,11 @@
 import os
 import sys
 from pathlib import Path
-from processing.live_recorder import LiveRecorder
+import threading
 
-from PyQt5.QtCore import QProcess, QProcessEnvironment, Qt, pyqtSignal
+from processing.realtime_vad import RealTimeVAD
+
+from PyQt5.QtCore import QProcess, QProcessEnvironment, Qt, pyqtSignal,  QObject
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (
     QApplication,
@@ -127,18 +129,35 @@ class DropArea(QFrame):
         self.subtitle_label.setText(Path(file_path).name)
         self.file_label.setText(file_path)
 
-
+class RealtimeSignals(QObject):
+    transcript_received = pyqtSignal(str)
+    recording_started = pyqtSignal()
+    recording_stopped = pyqtSignal(str, str)
+    error_occurred = pyqtSignal(str)
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
 
         self.audio_path = ""
+        self.live_transcript_path = ""
         self.is_recording = False
 
-        self.recorder = LiveRecorder(
-            device=1,
-            sample_rate=44100,
-            channels=2,
+        self.realtime_vad: RealTimeVAD | None = None
+        self.realtime_thread: threading.Thread | None = None
+
+        self.realtime_signals = RealtimeSignals()
+
+        self.realtime_signals.transcript_received.connect(
+            self.show_live_transcript
+        )
+        self.realtime_signals.recording_started.connect(
+            self.recording_started
+        )
+        self.realtime_signals.recording_stopped.connect(
+            self.recording_stopped
+        )
+        self.realtime_signals.error_occurred.connect(
+            self.recording_error
         )
         self.process = QProcess(self)
 
@@ -255,8 +274,20 @@ class MainWindow(QMainWindow):
             self.stop_recording
         )
 
+        self.live_summary_button = QPushButton(
+            "Sažmi live transkript"
+        )
+        self.live_summary_button.setObjectName("primaryButton")
+        self.live_summary_button.setEnabled(False)
+        self.live_summary_button.clicked.connect(
+            self.start_live_summary
+        )
+
         recording_button_layout.addWidget(self.record_button)
         recording_button_layout.addWidget(self.stop_record_button)
+
+        live_summary_layout = QHBoxLayout()
+        live_summary_layout.addWidget(self.live_summary_button)
 
         progress_title = QLabel("Status obrade")
         progress_title.setObjectName("sectionTitle")
@@ -285,6 +316,7 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(self.drop_area)
         left_layout.addLayout(button_layout)
         left_layout.addLayout(recording_button_layout)
+        left_layout.addLayout(live_summary_layout)
         left_layout.addSpacing(4)
         left_layout.addWidget(progress_title)
         left_layout.addLayout(status_row)
@@ -345,6 +377,18 @@ class MainWindow(QMainWindow):
 
         right_layout.addLayout(log_header)
         right_layout.addWidget(self.log_output, 1)
+        live_title = QLabel("Transkript uživo")
+        live_title.setObjectName("sectionTitle")
+
+        self.live_transcript_output = QPlainTextEdit()
+        self.live_transcript_output.setReadOnly(True)
+        self.live_transcript_output.setPlaceholderText(
+            "Prepoznati govor će se prikazivati ovde..."
+        )
+        self.live_transcript_output.setMaximumHeight(180)
+
+        right_layout.addWidget(live_title)
+        right_layout.addWidget(self.live_transcript_output)
         right_layout.addWidget(result_title)
         right_layout.addLayout(result_buttons)
 
@@ -575,105 +619,195 @@ class MainWindow(QMainWindow):
         if self.is_recording:
             return
 
+        self.audio_path = ""
+        self.is_recording = True
+
+        self.live_transcript_output.clear()
+        self.log_output.appendPlainText(
+            "\nUčitavanje real-time modela..."
+        )
+
+        self.choose_button.setEnabled(False)
+        self.drop_area.setEnabled(False)
+        self.start_button.setEnabled(False)
+        self.record_button.setEnabled(False)
+        self.stop_record_button.setEnabled(False)
+
+        self.set_status(
+            "Učitavanje modela za real-time obradu...",
+            "running",
+        )
+
+        self.realtime_thread = threading.Thread(
+            target=self._start_realtime_worker,
+            daemon=True,
+        )
+        self.realtime_thread.start()
+
+    def _start_realtime_worker(self) -> None:
         try:
-            self.audio_path = ""
-            self.is_recording = True
-
-            self.recorder.start_recording()
-
-            self.choose_button.setEnabled(False)
-            self.drop_area.setEnabled(False)
-            self.start_button.setEnabled(False)
-            self.record_button.setEnabled(False)
-            self.stop_record_button.setEnabled(True)
-
-            self.set_status(
-                "Snimanje sa mikrofona je u toku...",
-                "running",
+            self.realtime_vad = RealTimeVAD(
+                device=1,
+                input_sample_rate=44100,
+                channels=2,
+                on_transcript=(
+                    self.realtime_signals
+                    .transcript_received.emit
+                ),
             )
 
-            self.log_output.appendPlainText(
-                "\nSnimanje je pokrenuto. Govori u mikrofon..."
-            )
+            self.realtime_vad.start()
+
+            self.realtime_signals.recording_started.emit()
 
         except Exception as error:
-            self.is_recording = False
-
-            self.choose_button.setEnabled(True)
-            self.drop_area.setEnabled(True)
-            self.record_button.setEnabled(True)
-            self.stop_record_button.setEnabled(False)
-
-            self.set_status(
-                "Snimanje nije moglo da se pokrene",
-                "error",
-            )
-
-            QMessageBox.critical(
-                self,
-                "Greška pri snimanju",
-                str(error),
+            self.realtime_signals.error_occurred.emit(
+                str(error)
             )
 
     def stop_recording(self) -> None:
         if not self.is_recording:
             return
 
+        self.stop_record_button.setEnabled(False)
+
+        self.set_status(
+            "Završavanje poslednjeg segmenta...",
+            "running",
+        )
+
+        thread = threading.Thread(
+            target=self._stop_realtime_worker,
+            daemon=True,
+        )
+        thread.start()
+
+    def _stop_realtime_worker(self) -> None:
         try:
+            if self.realtime_vad is None:
+                raise RuntimeError(
+                    "Real-time obrada nije pokrenuta."
+                )
+
             project_directory = Path(__file__).resolve().parent
-            output_path = (
+
+            audio_output_path = (
                     project_directory
                     / "audio"
                     / "live_recording.wav"
             )
 
-            saved_audio_path = self.recorder.stop_recording(
-                str(output_path)
+            transcript_output_path = (
+                    project_directory
+                    / "outputs"
+                    / "transcript_live.txt"
             )
 
-            self.is_recording = False
-
-            self.choose_button.setEnabled(True)
-            self.drop_area.setEnabled(True)
-            self.record_button.setEnabled(True)
-            self.stop_record_button.setEnabled(False)
-
-            self.log_output.appendPlainText(
-                f"Snimanje je završeno.\n"
-                f"Snimak je sačuvan u:\n{saved_audio_path}"
+            audio_path, transcript_path = (
+                self.realtime_vad.stop(
+                    audio_output_path=str(
+                        audio_output_path
+                    ),
+                    transcript_output_path=str(
+                        transcript_output_path
+                    ),
+                )
             )
 
-            # Automatski postavlja snimljeni WAV kao izabrani fajl.
-            self.set_audio_file(saved_audio_path)
-
-            QMessageBox.information(
-                self,
-                "Snimanje završeno",
-                (
-                    "Snimak je uspešno sačuvan.\n\n"
-                    "Sada možeš da klikneš "
-                    "'Pokreni obradu'."
-                ),
+            self.realtime_signals.recording_stopped.emit(
+                audio_path,
+                transcript_path,
             )
 
         except Exception as error:
-            self.is_recording = False
-
-            self.choose_button.setEnabled(True)
-            self.drop_area.setEnabled(True)
-            self.record_button.setEnabled(True)
-            self.stop_record_button.setEnabled(False)
-
-            self.set_status(
-                "Greška prilikom završetka snimanja",
-                "error",
+            self.realtime_signals.error_occurred.emit(
+                str(error)
             )
 
-            QMessageBox.critical(
-                self,
-                "Greška pri čuvanju snimka",
-                str(error),
-            )
+    def recording_started(self) -> None:
+        self.stop_record_button.setEnabled(True)
+
+        self.set_status(
+            "Real-time snimanje i transkripcija su u toku...",
+            "running",
+        )
+
+        self.log_output.appendPlainText(
+            "Real-time snimanje je pokrenuto. "
+            "Govori u mikrofon..."
+        )
+
+    def show_live_transcript(self, text: str) -> None:
+        self.live_transcript_output.appendPlainText(
+            text
+        )
+
+        self.log_output.appendPlainText(
+            f"Prepoznato: {text}"
+        )
+
+    def recording_stopped(
+            self,
+            audio_path: str,
+            transcript_path: str,
+    ) -> None:
+        self.is_recording = False
+        self.realtime_vad = None
+
+        self.live_transcript_path = transcript_path
+
+
+        self.choose_button.setEnabled(True)
+        self.drop_area.setEnabled(True)
+        self.record_button.setEnabled(True)
+        self.stop_record_button.setEnabled(False)
+
+        self.live_summary_button.setEnabled(
+            os.path.isfile(self.live_transcript_path)
+        )
+
+        self.log_output.appendPlainText(
+            "\nReal-time snimanje je završeno."
+            f"\nAudio: {audio_path}"
+            f"\nTranskript: {transcript_path}"
+        )
+
+        # Snimljeni WAV automatski postaje izabrani audio.
+        self.set_audio_file(audio_path)
+
+        QMessageBox.information(
+            self,
+            "Snimanje završeno",
+            (
+                "Snimanje i real-time transkripcija "
+                "su završeni.\n\n"
+                "Sada možeš da pokreneš kompletnu obradu."
+            ),
+        )
+
+    def recording_error(self, message: str) -> None:
+        self.is_recording = False
+        self.realtime_vad = None
+
+        self.choose_button.setEnabled(True)
+        self.drop_area.setEnabled(True)
+        self.record_button.setEnabled(True)
+        self.stop_record_button.setEnabled(False)
+
+        self.set_status(
+            "Greška tokom real-time obrade",
+            "error",
+        )
+
+        self.log_output.appendPlainText(
+            f"\nGreška: {message}"
+        )
+
+        QMessageBox.critical(
+            self,
+            "Greška tokom snimanja",
+            message,
+        )
     def set_audio_file(self, file_path: str) -> None:
         if not os.path.isfile(file_path):
             QMessageBox.warning(
@@ -709,21 +843,53 @@ class MainWindow(QMainWindow):
             f"Izabran fajl: {file_path}"
         )
 
-    def start_processing(self) -> None:
-        if not self.audio_path:
+    def start_live_summary(self) -> None:
+        if not self.live_transcript_path:
+            QMessageBox.warning(
+                self,
+                "Transkript nije pronađen",
+                "Prvo pokreni i završi real-time snimanje.",
+            )
+            return
+
+        if not os.path.isfile(self.live_transcript_path):
+            QMessageBox.warning(
+                self,
+                "Transkript nije pronađen",
+                (
+                    "Live transkript ne postoji:\n"
+                    f"{self.live_transcript_path}"
+                ),
+            )
             return
 
         if self.process.state() != QProcess.NotRunning:
             return
 
+        self.start_pipeline_process(
+            arguments=[
+                "--transcript",
+                self.live_transcript_path,
+            ],
+            log_message=(
+                "Pokretanje sumarizacije live transkripta:\n"
+                f"{self.live_transcript_path}\n"
+            ),
+        )
+
+    def start_pipeline_process(
+            self,
+            arguments: list[str],
+            log_message: str,
+    ) -> None:
         self.set_controls_enabled(False)
+        self.live_summary_button.setEnabled(False)
+
         self.open_pdf_button.setEnabled(False)
         self.open_folder_button.setEnabled(False)
 
         self.log_output.clear()
-        self.log_output.appendPlainText(
-            f"Pokretanje obrade za:\n{self.audio_path}\n"
-        )
+        self.log_output.appendPlainText(log_message)
 
         self.set_status(
             "Obrada je u toku...",
@@ -733,12 +899,14 @@ class MainWindow(QMainWindow):
         self.progress_bar.setRange(0, 0)
 
         python_executable = sys.executable
+
         project_directory = os.path.dirname(
             os.path.abspath(__file__)
         )
+
         main_script = os.path.join(
             project_directory,
-            "main.py"
+            "main.py",
         )
 
         self.process.setWorkingDirectory(
@@ -766,8 +934,6 @@ class MainWindow(QMainWindow):
             r"\CUDA\v12.4",
         )
 
-        # QProcess mora da nasledi korisnički home direktorijum,
-        # jer Hugging Face/Whisper koriste te promenljive za cache.
         user_profile = os.environ.get("USERPROFILE", "")
         home_drive = os.environ.get("HOMEDRIVE", "")
         home_path = os.environ.get("HOMEPATH", "")
@@ -792,8 +958,23 @@ class MainWindow(QMainWindow):
             [
                 "-u",
                 main_script,
-                self.audio_path,
+                *arguments,
             ],
+        )
+
+    def start_processing(self) -> None:
+        if not self.audio_path:
+            return
+
+        if self.process.state() != QProcess.NotRunning:
+            return
+
+        self.start_pipeline_process(
+            arguments=[self.audio_path],
+            log_message=(
+                "Pokretanje kompletne audio-obrade za:\n"
+                f"{self.audio_path}\n"
+            ),
         )
 
     def read_process_output(self) -> None:
@@ -844,6 +1025,11 @@ class MainWindow(QMainWindow):
     ) -> None:
         self.progress_bar.setRange(0, 100)
         self.set_controls_enabled(True)
+
+        self.live_summary_button.setEnabled(
+            bool(self.live_transcript_path)
+            and os.path.isfile(self.live_transcript_path)
+        )
 
         if (
             exit_status == QProcess.NormalExit
@@ -901,6 +1087,11 @@ class MainWindow(QMainWindow):
         self.progress_bar.setRange(0, 100)
         self.progress_bar.setValue(0)
         self.set_controls_enabled(True)
+
+        self.live_summary_button.setEnabled(
+            bool(self.live_transcript_path)
+            and os.path.isfile(self.live_transcript_path)
+        )
 
         self.set_status(
             "Proces nije mogao da se pokrene",
