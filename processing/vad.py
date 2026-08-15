@@ -1,9 +1,9 @@
-import torch
+import torch #Koristi se za rad sa tensorima i neuronskim mrezama.
 import soundfile as sf
 from silero_vad import load_silero_vad, get_speech_timestamps
 
 
-def detect_speech(audio_path: str):
+def detect_speech(audio_path: str): #funkcija za detektovanje govora
     # Ucitava Silero VAD model koji detektuje delove audio snimka gde postoji govor
     model = load_silero_vad()
 

@@ -1,1 +1,107 @@
-[0.69s - 25.17s] Ćao, ja sam Maša i dobrodošli u moj novi video. Ja se krenutno nalazim u sobi moje sestre. Ovde se nalaze dva buketa, pogledalo i sliki imamo na zidu. Prata je zatvorena i moja sestra je malo sebična. Hvala ti pošto si slušao moj video, pa vidimo se u sledećem videu.
+[0.53s - 5.05s] Novoj model kineske veštačke inteligencije izazvao strah u Sjedinjenim državama.
+[5.29s - 9.19s] Ako je jeftini kineski chatbot počisti američke kompanije sa tržišta,
+[9.29s - 13.63s] propašće njihova ogromna ulaganja i predstavim sunovrat akcija.
+[14.05s - 17.15s] Gubici bi teorijski mogli da sruše i njujorsku bersu.
+[17.35s - 20.89s] Njeni indeksi u poslednjih godinu dana rasli su zbog očekivanja
+[20.89s - 25.13s] da će se američke investicije u veštačku inteligenciju više struku isplatiti
+[25.13s - 29.63s] za državanjem premoći u toj oblasti na kojoj počiva savremena privreda.
+[29.63s - 34.37s] Tako je Kina zadala novi udarac u ekonomskom ratu sa Sjedinjenim državama.
+[34.55s - 39.33s] Primir je bi eventualno moglo da usledi nakon 24. septembra.
+[39.73s - 43.89s] Tada bi Xi Jinping trebalo da dođe u Belu kuću na sastanak sa Donaldom Trumpom,
+[44.29s - 48.85s] koji već najavljuje da će glavna tema razgovora biti upravo veštačka inteligencija.
+[49.45s - 52.29s] Ko ima veće šanse da na kraju pobedi u tom sukobu,
+[52.67s - 57.07s] šta on znači za ceo svet i kakve će posljedice biti po Srbiji,
+[57.07s - 59.29s] o tome razgovaram sa programskim direktorom
+[59.29s - 66.01s] Fondacije Stefanom Vladisavljevom i sa dopisnikom RTS-a sa Dalekog istoka,
+[66.19s - 70.13s] Iljom Osulinom. Ilja, dobro jutro. Stefane, dobrodošli.
+[70.71s - 71.05s] Dobrodošli.
+[71.35s - 76.41s] Evo, Ilja, prethodni kineski model veštačke inteligencije je bio jeftiniji,
+[76.49s - 81.13s] ali i nešto slabiji od američkih. I kakav je ovaj novi model?
+[81.31s - 85.97s] Ima li u svemu prednost nad onim što se proizvodi u Sjedinjem državom?
+[87.07s - 88.97s] Pa, početkom prošloj godine...
+[89.29s - 95.79s] Kinezi su izbacio i na tržište jedan model veštačke inteligencije po imenu DeepSeek.
+[96.41s - 102.25s] Taj model tada je bio dostupan besplatno, znači prosto ste mogli da ga downloadojete na svoj kompjuter.
+[102.41s - 107.85s] I on je postao jako velika vest jer se je pokazalo da zapravo ima vrlo dobre performanse,
+[107.99s - 114.65s] da možda za tim američkim modelima veštačke inteligencije zaostaje samo oko 10%,
+[114.65s - 118.45s] ako se gledaju razni parametri, dok je sa druge strane potpuno,
+[119.29s - 122.89s] znači bio pristupača, znači besplatno.
+[123.47s - 129.79s] Međutim, sada su kinezi ponovo napravili jedan novi model koji do duše se plaća,
+[129.89s - 136.71s] ali je 50-60, u nekim svojim elementima i 70% jeftinije od američkih modela veštačke inteligencije.
+[137.15s - 145.95s] Međutim, ovaj novi model koji je izbacila kompanija koja se zove Moonshot, zove se Kimi K3.
+[145.95s - 148.95s] On se pokazao boljim od tih...
+[149.29s - 156.47s] ...američkih modela u čak šest, od ukupno sedam domena ili sedam parametara,
+[156.59s - 165.09s] znači obrada podataka, znači pravljenje raznih, da kažemo, recimo reklamatih obrazaca, dokumenta i tako dalje.
+[165.21s - 168.73s] Znači zaostaje samo u jednom domenu, a znatno je jeftinije.
+[168.73s - 178.75s] Znači šta to znači? To znači da bi masovno, širom sveta, znači sve eventualno potencijalne, da kažemo, mušterije moglo da pobegnu kod kineza,
+[179.29s - 187.63s] jer su oni ekonomičniji, pristupačniji, a to bi onda naravno imalo veliki uticaj na američku industriju veštačke inteligencije.
+[187.81s - 198.35s] U Sjedinjenim državama su jako veliki troškovi ulaganja u veštačku inteligenciju, znači potrebni su ti veliki data centri koji troše puno struje, puno vode,
+[198.35s - 209.27s] i tu je reč o investicijama od ponekoliko milijardi dolara u jedan data centar, pa čak i nekoliko desetina milijardi, znači u Sjedinjenim državama samo ove godine će vratno privatne kompanije,
+[209.29s - 224.67s] uložiti oko 700 milijardi dolara u industriju vezanu za veštačku inteligenciju, i sada zamislite sve te investicije odjednom propadaju, na neki način ne mogu da se povrate jer je neko drugi mnogo jeftiniji,
+[224.67s - 237.29s] da kažemo, upola ili više nego upola jeftiniji ili daje proizvod sličnog kvaliteta besplatno. Znači tu se, da kažemo, na neki način, barem veruju analitičari u Istočnoj Aziji,
+[239.29s - 248.61s] sa jednim velikim problemom koji može dovesti eventualno, da kažemo, do kraha te njihove industrije veštačke inteligencije i do poremećaja na berzi,
+[248.61s - 266.21s] jer je na berzi u Njurku u ovom trenutku upravo su akcije tih kompanija iz oblasti veštačke inteligencije one koje su najvrednije i one, da kažemo, drže na neki način uopšte tu vrednost generalno akcija na njuroškoj berzi,
+[266.21s - 269.21s] tako da ako bi one naglo pale...
+[269.29s - 277.29s] I sama berza bi se suočila sa jednom vrstom loma, što bi dalje imala opet posljedice počitavu u američkoj ekonomiji.
+[277.29s - 287.29s] Da, i evo, kada uzmemo ovu u obzir, mi smo u prethodnom periodu imali različite poteze Sjedinih država koji su bili usmereni na sprečavanje razvoja, da tako kažemo, kineske veštačke inteligencije,
+[287.29s - 299.29s] pa je tu bila i zabrana izvoza čipova, pa i različite vrste pretnji taksama, carinama i tako dalje. Je li imalo to efekt ili je Kina uspela da nađe negde, tako kažemo, zaobilazni,
+[299.29s - 302.29s] put do razvoja ovog modela?
+[302.29s - 315.29s] Ono što Kina jako dobro radi kroz svoju istoriju, jeste da razvija svoje kapacitete i svoje resurse. I u onom momentu kada se našla ograničenost strane spolnih faktora, počela je više da se osveće ka izgradnji onoga što bi bio domaći proizvod,
+[315.29s - 329.29s] odnosno ono što bi bio kineski pandan, upravo i čipovima ili nekim drugim komponentama koje su važne za razvoj tehnologije o kojima govorimo, a tu je takođe jako važno napomenuti da ako Amerika ograničava Kini pristup
+[329.29s - 338.29s] samim čipovima, Kina ima kapaciteta i mogućnost da u ovom trenutku ograniče pristup tim osnovnim mineralima i osnovnim sirovinama koje se koriste za izgradnju tih čipova.
+[338.29s - 350.29s] Što pokazuje na kom nivou mi zapravo govorimo o međuzavisnosti globalne ekonomije i ovih najvećih karaktera na nivou globalne ekonomije. Sa sve to rečeno, Kinezi se nisu usporili, očigledno sa datim restrikcijama,
+[350.29s - 359.29s] ali one koje su nametnute određenim ograničenjima, ali ono sa čime se suočavaju i upravo zbog čega mi pričamo sve o ovome,
+[359.29s - 370.29s] jeste da kao krajnji korisnik, a mi ovde najčešće u ovim tehnologijama, ovde govorimo najčešće o onim komercijalnim modelima sa kojima se mi susrećemo gotovo na dnevnom nivou,
+[370.29s - 383.29s] korisnik je taj koji će na kraju odlučiti da li će koristiti CharGPT ili DeepSeq ili Kimi ili Anthropic of Claude i tu sada već dolazimo na polje propagande više nego kvaliteta samih tehnologija.
+[383.29s - 389.29s] A u toj upravo, u tom ratu, ko bi mogao da ima prednost? Je li to Amerika?
+[389.29s - 405.29s] Amerika koja negde jeste svoj način života, uspela da plasira širom sveta, u proteklih 20 godina, tako kažemo, ta amerikanizacija svega postojećeg ima dubok upliv u svim, čini se, krajevima sveta.
+[405.29s - 419.29s] Ili Kina koja je upravo na tom segmentu rastoća, jer mi tek u proteklih možda deseta godina upoznajemo i kineske turiste i njihovu kulturu, evo širom Evrope, na primjer, ali su oni duboko i u Aziji, i u Africi,
+[419.29s - 428.29s] svojim i kompanijama i tako dalje. Šta vi mislite, je li to negde sada, koji ima zapravo više prednosti u toj trci?
+[428.29s - 434.29s] Jako je zanimljivo. Dakle, mi smo imali, nakon završetka drugog svjetskog rata, onaj period hladnog rata kada smo imali blokovske podele.
+[434.29s - 444.29s] I tada smo imali Sovjetski savijez, imali smo Svijedne američke države i nekako padom Berlinskog zida i završetkom hladnog rata ta zapadna kultura je počela da dominira negde na globalnom nivou.
+[444.29s - 453.29s] Sa rastom Kine, sa uspunom Kine na polju meke moći, na polju plasiranja ne samo svojih političkih poruka, nego i ovih kulturnih sadržaja, na kraju krajeva i tehnoloških rešenja,
+[453.29s - 462.29s] pogledajte, evo, po Beogradu sve više i više, ali tako i u drugim evropskim gradovima, na primjer, koji procenat električnih automobila kineskih vi vidite na ulicama.
+[462.29s - 470.29s] I to je sad takođe element kulture. Ljudi koji vole automobile, takve stvari gledaju kao domen ne samo mehanike i tehnike, već i domen popularne kulture.
+[470.29s - 473.29s] Ono što Kina jeste uspela da uradi, da u takozvanom
+[473.29s - 482.29s] u državama koje su države globalnog juga, odnosno države koje su u razvoju, stekne izuzetno pozitivni imeđ kroz određenu vrstu političke i ekonomske saradnje,
+[482.29s - 491.29s] a sada je na njoj da u ovoj drugoj fazi, negde, pozicioniranja sebe kao globalne supersile, plasira što više ovih sadržaja.
+[491.29s - 499.29s] Jer kada pomislimo na automobil, mi pomislimo u redu na neki Jeep, na neki Mercedes, mislim da će sa razvojem ovih tehnologija i sa prevlašću električkih automobila...
+[499.29s - 502.29s] Ali kada pomislimo na zeleni automobil, odnosno...
+[502.29s - 503.29s] Viva ID i ostali automobili...
+[503.29s - 512.29s] Ostali automobili koje u ovom trenutku najviše vidimo na ulicama, postaju sve dominantniji i sa svim ovim tehnologijama zapravo je jako zanimljivo napraviti paralelu i sa vešačkom inteligencijom.
+[512.29s - 523.29s] To je ono što zapadna, ja slobodno mogu da kažem kapitalistički orijentisane tržačne ekonomije negde i plaši, da će jedna i drugačija ekonomija sa centralizovanim sistemom upravljanja,
+[523.29s - 532.29s] gde svaka ta privatna kompanija ima najčešće bliske veze sa samom državom, biti podjednako kvalitetan takmac na samom globalnom tržištu.
+[532.29s - 533.29s] Ok.
+[533.29s - 550.29s] Upravo, da sada uključimo i Ilju, Ilja zbog rata na Bliskom istoku, blokade Ormoza, očekivalo se da će trpeti izvoz iz Kine, ali prema posljednjim podacima on je dostigao, ako se ne vram, rekordan obim i to upravo i prevazhodno zbog izvoza veštačke inteligencije.
+[550.29s - 560.29s] Koliko je zemalja prigrilo kinesku veštačku inteligenciju i gde je, zapravo na kom kontinentu najprej?
+[560.29s - 562.29s] Dobro, kada je u pitanju taj...
+[562.29s - 563.29s] Dobro, kada je u pitanju taj...
+[563.29s - 586.29s] ...rekordni kineski izvoz, znači oni su sada postigli u junu, znači najbolji izvozni rezultat od kada su uvedene ove Trumpove carine protiv njih, a inače ukupno drugi najveći izvozni rezultat svih vremena, odnosno ogroman suficit su ostvarili od 125,6 milijardi dolara.
+[586.29s - 592.29s] E sada iza toga, do duše pomenuli ste veštačku inteligenciju, to je istina, naročito ti automobili, jeli električni,
+[592.29s - 615.29s] su postali izvjetno važan izvozni artikal, oni naravno izvoze i puno mašina i robe širke potrošnje, ali poslednjih meseci ili godinu dana, naročito i te sve proizvode koji sadrže i veštačku inteligenciju u sebi, znači to su u pitanju roboti, recimo roboti koji se koriste u industriji ili u logistici,
+[615.29s - 623.29s] zatim sami električni automobili, sad imate pametne automobile koji funkcionišu na bazi veštačke inteligencije itd.
+[623.29s - 636.29s] Međutim, iza ovog izvoza, odnosno izvoznog uspeha, na neki način naozi se i inflacija, jer poskupljuje sve širom sveta, znači onda se neki rezultati izvoza prikazuju malo veći.
+[636.29s - 642.29s] Takođe treba reći i da možda ti negativni utjecaji ovog rata u Persijskom zalivu još uvek se nisu odrazili.
+[645.29s - 652.29s] U toj meri na izvozu u Kiniji, u drugim državama, verovatno će se odraziti kasnije tokom ove godine.
+[652.29s - 660.29s] Međutim, kada smo sve to absolvirali, znači onda treba da kažemo da zaista kineska veštačka inteligencija postaje sve popularnija širom sveta,
+[660.29s - 673.29s] naročito kao što je gospodin rekao u tim državama tzv. globalnog juga, znači naročito im je skočio izvoz u jugoistočnu Aziju, recimo kada je u pitanju veštačka inteligencija,
+[673.29s - 675.29s] kada su u pitanju roboti.
+[675.29s - 681.29s] Pametna vozila, pametni telefoni u zemlje kao što su Tajland, Vjetnam, Indonezija.
+[681.29s - 688.29s] Zatim u zemlje bliskog istoka, sada vidjet ćemo šta će se tamo desiti uskoro, znači u narednim mesecima.
+[688.29s - 695.29s] I naravno u zemljama Afrike, Latinske Amerike i donekle istočne Evrope.
+[695.29s - 705.29s] Dakle, u ovom trenutku u koliko sam ja mogao da vidim, znači kineska veštačka inteligencija se izvozi u preko 70, skoro 80%
+[705.29s - 707.29s] zemalja sveta.
+[707.29s - 716.29s] Hvala Ilji. Evo, ostalo nam je još malo vremena samo da se dotaknemo i toga da je susret Xi Jinpinga i Trumpa zakazan za 24. september u Beloj kući.
+[716.29s - 720.29s] Kako je rekao to meriški predsednik, jedan od glavnih tema biće veštačka inteligencija.
+[720.29s - 731.29s] Znači li to negde i da bi taj sastanak mogao da približi dve strane ili znači prodobljivanje u ovom, ako možemo da ga nazovemo, tehnološkom ratu?
+[731.29s - 733.29s] Sumnijem da će doći do nekog približavanja.
+[733.29s - 735.29s] Prosto ono što je nekad bila tehnološka rata.
+[735.29s - 742.29s] Prva trka do meseca ili trka u nukularnom naoružanju sada postaje trka u razvoju veštačke inteligencije i podaci jesu novi meci,
+[742.29s - 744.29s] nova vrsta naoružanja.
+[744.29s - 755.29s] S obzirom da se radi o dve najveće sile na svetu koje imaju puno razvimu i laženja po pitanju određenih ne samo trgovinskih, ekonomskih već i političkih stavova na globalnom nivou,
+[755.29s - 763.29s] u najboljem slučaju ono što možemo da očekujemo da će poruki glasiti tako da će zajedno raditi na daljem, možda ne sklanjanju potpunog razvoja,
+[763.29s - 765.29s] možda ne sklanjanju potpunog razvoja,
+[765.29s - 777.29s] možda ne sklanjanju potpunog razdvajanja, ali na međusobnom razumevanju da i jedni i drugi imaju podjednako pravo da razvijaju svoje kapacicete dok ga to ne ugrožava sagovornika sa druge strane stola.
+[777.29s - 786.29s] Postoje oni koji kažu da možda nećemo i ništa saznati zato što je sa Donaldom Trumpom u Peking išao pun avion tehnoloških lidera, a nismo čuli baš mnogo toga da je nešto dogovoreno,
+[786.29s - 793.29s] ali o tome ćemo te govoriti ima još vremena, gotovo dva meseca. Hvala na izvedno vremenu na gostovanju.
+[793.29s - 794.29s] Hvala na pozivu.
+[794.29s - 796.29s] Hvala na uključenju.

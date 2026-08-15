@@ -1,18 +1,21 @@
-- [GLAVNE_TEME]
-- ESI program, predavanja, laboratorijske vežbe, projekti, domaći zadaci, kolokviumi, programiranje, elektrotehnika, računarstvo
-- [VAZNE_INFORMACIJE]
-- Grupe za predavanja do 60 studenata, laboratorijske grupe do 30 studenata, svaki student ima svoj računar, vrednivanje projekata, domaćih zadataka, kolokvijuuma, tri kolokviuma, osnova elektrotehničarstva, veći akcenat na programiranju, zgradu Palate nauke u Kralju Milanu, 19 naučnih centara, zgradu Palate nauke, elektrijadu (takmičenje), Studentsku uniju, projekat Student Mentor (mentorski program), sajt za studente, računski centar (računari 24 sata dnevno), klub studenta tehnike (kafić, žurke, koncerti), KST maskenbal (50. godišnjica), novogodišnji fakultet, TELFOR konferencije, ETRAN konferencije, H-bridges tim (energetska elektronika)
-- [BROJEVI_I_DATUMI]
-- 2024. godine (zgrada Palate nauke)
-- 19 naučnih centara
-- 6-7 studenata u mentor skupinama
-- 24 sata dnevno (računarski centar)
-- 50 godina KST maskembala
-- [AKCIONE_STAVKE]
-- Formiranje grupa za pripremnu nastavu (profesor matematika)
-- Organizovanje pripremnih časova za Brucoše (studentska unija, studentske organizacije)
-- Vodstvo studenata na konferencije (ETF)
-- Organizovanje KST maskembala
-- Organizovanje novogodišnjeg fakulteta
-- [NEJASNI_DELOVI]
-- "škupljati poene" (nejasno kako se poeni "škupljaju")
+[GLAVNE_TEME]
+- odnosi između dve najveće sile na svetu (SAD i Kina)
+- politički i ekonomski stavovi
+- međusobno razumevanje
+
+[VAZNE_INFORMACIJE]
+- dve najveće sile na svetu su SAD i Kina
+- grupa tehnoloških lidera posetila je Peking sa Donaldom Trampom
+
+[BROJEVI_I_DATUMI]
+- dva meseca
+
+[ZAKLJUCCI]
+- očekivanje da će zemlje nastaviti saradnju
+
+[AKCIONE_STAVKE]
+- -
+
+[NEJASNI_DELOVI]
+- „sklanjanju potpunog razvoja“ – nejasno šta se podrazumeva pod „sklanjanjem“
+- „ugrožava sagovornika sa druge strane stola“ – nejasno šta to znači

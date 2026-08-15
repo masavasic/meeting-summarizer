@@ -1,0 +1,17 @@
+[GLAVNE_TEME]
+- prijateljstvo, društveni odnosi, životne odluke
+
+[VAZNE_INFORMACIJE]
+- razmišljanja o ljudima i njihovim životima, iskustva iz prošlosti, razmatranje budućih odnosa
+
+[BROJEVI_I_DATUMI]
+- 5-6 godina (vreme otkucavanja određenih informacija)
+
+[ZAKLJUCCI]
+- razmatranje različitih perspektiva i vrednosti u odnosima
+
+[AKCIONE_STAVKE]
+- izlazak iz konforne zone, traženje novih prijatelja
+
+[NEJASNI_DELOVI]
+- "kamoli i onda da se ispričava neke naše prostorije" (nejasna rečenica, verovatno se odnosi na neobične ili šokantne priče)

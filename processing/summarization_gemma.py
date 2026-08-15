@@ -14,7 +14,7 @@ from transformers import (
 
 
 @dataclass
-class SummaryResult:
+class SummaryResult: #struktura konacnog sazetka
     title: str
     content_type: str
     short_overview: str
@@ -26,7 +26,7 @@ class SummaryResult:
     unclear_parts: list[str]
 
 
-class GemmaTranscriptSummarizer:
+class GemmaTranscriptSummarizer: #glavna klasa, nas ceo gemma sumarizer
     CHUNK_SECTIONS = [
         "GLAVNE_TEME",
         "VAZNE_INFORMACIJE",
@@ -87,11 +87,11 @@ class GemmaTranscriptSummarizer:
         if not torch.cuda.is_available():
             raise RuntimeError(
                 "CUDA nije dostupna. Gemma 3 4B je u ovoj verziji "
-                "podešena za rad na NVIDIA GPU-u."
+                "podesena za rad na NVIDIA GPU-u."
             )
 
-        print("Sumarizacija će koristiti GPU.")
-        print(f"Učitavanje modela: {self.model_name}")
+        print("Sumarizacija ce koristiti GPU.")
+        print(f"Ucitavanje modela: {self.model_name}")
 
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
@@ -109,9 +109,9 @@ class GemmaTranscriptSummarizer:
             torch_dtype=torch.bfloat16,
             low_cpu_mem_usage=True,
         )
-        self.model.eval()
+        self.model.eval() #model se koristi za inference, ne za treniranje.
 
-        print("Gemma 3 model je uspešno učitan.")
+        print("Gemma 3 model je uspesno ucitan.")
 
     @classmethod
     def to_latin(cls, text: str) -> str:
@@ -130,7 +130,7 @@ class GemmaTranscriptSummarizer:
                 re.escape(wrong),
                 correct,
                 text,
-                flags=re.IGNORECASE,
+                flags=re.IGNORECASE, #ignorsi velika i mala slova
             )
 
         text = re.sub(r"[ \t]+", " ", text)
@@ -146,14 +146,14 @@ class GemmaTranscriptSummarizer:
 
     def count_tokens(self, text: str) -> int:
         return len(
-            self.processor.tokenizer.encode(
+            self.processor.tokenizer.encode( #pretvara tekst u listu token ID-eva.
                 text,
                 add_special_tokens=False,
             )
         )
 
     @staticmethod
-    def split_into_sentences(text: str) -> list[str]:
+    def split_into_sentences(text: str) -> list[str]: #podeli veliki transkript na recenice
         protected_text = text
 
         abbreviations = {
@@ -183,6 +183,7 @@ class GemmaTranscriptSummarizer:
             flags=re.IGNORECASE,
         )
 
+        #podela recenica
         raw_sentences = re.split(
             r"(?<=[!?])\s+"
             r"|(?<=[A-Za-zČĆŽŠĐčćžšđ])\.\s+(?=[A-ZČĆŽŠĐ])"
@@ -190,6 +191,7 @@ class GemmaTranscriptSummarizer:
             protected_text,
         )
 
+        #ciscenje recenica
         sentences: list[str] = []
         for sentence in raw_sentences:
             sentence = sentence.strip()
@@ -202,7 +204,7 @@ class GemmaTranscriptSummarizer:
 
         return sentences
 
-    def split_into_chunks(
+    def split_into_chunks( #veliki transkript podeli na delove od najvise priblizno 1800 tokena
         self,
         transcript: str,
         max_tokens: int = 1800,
@@ -272,7 +274,7 @@ class GemmaTranscriptSummarizer:
     @staticmethod
     def extract_numbers(text: str) -> list[str]:
         """
-        Izdvaja pojedinačne brojeve. Opsege poput 480-500 i izraze
+        Izdvaja pojedinacne brojeve. Opsege poput 480-500 i izraze
         poput 24/7 razdvaja na 480, 500, odnosno 24 i 7.
         """
         return re.findall(r"\d{1,3}(?:[.,]\d{3})+|\d+", text)
@@ -292,9 +294,9 @@ class GemmaTranscriptSummarizer:
         summary_text: str,
     ) -> dict[str, Any]:
         """
-        Proverava da li se svaki broj iz sažetka makar jednom pojavljuje
-        u transkriptu. Ne prijavljuje grešku samo zato što je isti broj
-        ponovljen više puta u sažetku.
+        Proverava da li se svaki broj iz sazetka makar jednom pojavljuje
+        u transkriptu. Ne prijavljuje gresku samo zato sto je isti broj
+        ponovljen vise puta u sazetku.
         """
         source_numbers = {
             self.normalize_number(value)
@@ -324,7 +326,7 @@ class GemmaTranscriptSummarizer:
         }
 
     @staticmethod
-    def build_chunk_prompt(
+    def build_chunk_prompt( #samo pravi tekst prompta koji cemo Gemmi poslati
         chunk: str,
         chunk_number: int,
         total_chunks: int,
@@ -375,7 +377,7 @@ TEKST:
 """.strip()
 
     @staticmethod
-    def build_overview_prompt(
+    def build_overview_prompt( #ovo je drugi promt
         main_topics: list[str],
         important_information: list[str],
         numbers_and_dates: list[str],
@@ -416,7 +418,7 @@ BELEŠKE:
 {json.dumps(source_data, ensure_ascii=False, indent=2)}
 """.strip()
 
-    def generate_text(
+    def generate_text( #centralna funkcija koja stvarno razgovara sa Gemmom
         self,
         prompt: str,
         max_new_tokens: int,
@@ -442,6 +444,8 @@ BELEŠKE:
         )
 
         model_device = next(self.model.parameters()).device
+
+        #Sve ulazne tensore prebacujemo na isti uredjaj
         inputs = {
             key: value.to(model_device)
             for key, value in inputs.items()
@@ -509,31 +513,71 @@ BELEŠKE:
         if not normalized_text:
             raise ValueError("Model je vratio prazan odgovor.")
 
-        # Gemma ponekad vrati JSON umesto formata:
-        # [GLAVNE_TEME]
-        # - stavka
+        empty_values = {
+            "nema",
+            "(nema)",
+            "nema stavki",
+            "nema izdvojenih stavki",
+        }
+
+        # -------------------------------------------------
+        # 1. Pokušaj parsiranja JSON odgovora
+        # -------------------------------------------------
+
         json_text = normalized_text.strip()
 
-        # Uklanjanje Markdown oznaka ```json i ```
+        # Gemma ponekad obavije JSON u:
+        # ```json
+        # ...
+        # ```
         json_text = re.sub(
             r"^```(?:json)?\s*",
             "",
             json_text,
             flags=re.IGNORECASE,
         )
+
         json_text = re.sub(
             r"\s*```$",
             "",
             json_text,
         )
 
-        # Prvo pokušava parsiranje JSON odgovora
         try:
             parsed_json = json.loads(json_text)
 
+            # -------------------------------------------------
+            # JSON može biti:
+            #
+            # {
+            #   "GLAVNE_TEME": [...],
+            #   ...
+            # }
+            #
+            # ili:
+            #
+            # [
+            #   {"GLAVNE_TEME": [...]},
+            #   {"VAZNE_INFORMACIJE": [...]},
+            #   ...
+            # ]
+            # -------------------------------------------------
+
+            if isinstance(parsed_json, list):
+                merged_json = {}
+
+                for item in parsed_json:
+                    if isinstance(item, dict):
+                        merged_json.update(item)
+
+                parsed_json = merged_json
+
             if isinstance(parsed_json, dict):
                 for section in expected_sections:
-                    value = parsed_json.get(section, [])
+                    value = parsed_json.get(
+                        section,
+                        [],
+                    )
 
                     if isinstance(value, list):
                         cleaned_items: list[str] = []
@@ -543,30 +587,41 @@ BELEŠKE:
                                 str(item)
                             )
 
-                            if clean_item:
-                                cleaned_items.append(clean_item)
+                            if (
+                                    clean_item
+                                    and clean_item.casefold()
+                                    not in empty_values
+                            ):
+                                cleaned_items.append(
+                                    clean_item
+                                )
 
                         result[section] = cleaned_items
 
                     elif isinstance(value, str):
-                        clean_value = cls.normalize_text(value)
+                        clean_value = cls.normalize_text(
+                            value
+                        )
 
-                        if clean_value and clean_value.casefold() not in {
-                            "nema",
-                            "nema stavki",
-                            "nema izdvojenih stavki",
-                        }:
-                            result[section] = [clean_value]
+                        if (
+                                clean_value
+                                and clean_value.casefold()
+                                not in empty_values
+                        ):
+                            result[section] = [
+                                clean_value
+                            ]
 
-                # Ako je pronađena makar jedna stavka,
-                # JSON je uspešno obrađen
                 if any(result.values()):
                     return result
 
         except json.JSONDecodeError:
             pass
 
-        # Ako odgovor nije JSON, koristi se stari parser
+        # -------------------------------------------------
+        # 2. Parsiranje tekstualnog formata
+        # -------------------------------------------------
+
         current_section: str | None = None
 
         for raw_line in normalized_text.splitlines():
@@ -575,21 +630,68 @@ BELEŠKE:
             if not line:
                 continue
 
-            section_match = cls.SECTION_PATTERN.fullmatch(line)
+            # Podržava:
+            #
+            # [GLAVNE_TEME]
+            #
+            # ali i:
+            #
+            # - [GLAVNE_TEME]
+            #
+            # kao i:
+            #
+            # [GLAVNE_TEME] neka tema
+            #
+            # ili:
+            #
+            # - [GLAVNE_TEME] neka tema
+
+            section_match = re.match(
+                r"^(?:[-*•]\s*)?"
+                r"\[([A-Z_]+)\]"
+                r"\s*:?\s*(.*)$",
+                line,
+            )
 
             if section_match:
                 section_name = section_match.group(1)
+                inline_content = section_match.group(2).strip()
 
                 current_section = (
                     section_name
                     if section_name in result
                     else None
                 )
+
+                if current_section is None:
+                    continue
+
+                # Ako se sadržaj nalazi u istom redu
+                # kao oznaka sekcije.
+                if inline_content:
+                    inline_content = re.sub(
+                        r"^[-*•]\s*",
+                        "",
+                        inline_content,
+                    ).strip()
+
+                    if (
+                            inline_content
+                            and inline_content.casefold()
+                            not in empty_values
+                    ):
+                        result[current_section].append(
+                            inline_content
+                        )
+
                 continue
 
+            # Ako još nismo pronašli poznatu sekciju,
+            # ovu liniju ignorišemo.
             if current_section is None:
                 continue
 
+            # Uklanja bullet oznaku sa početka stavke.
             line = re.sub(
                 r"^[-*•]\s*",
                 "",
@@ -599,11 +701,7 @@ BELEŠKE:
             if not line:
                 continue
 
-            if line.casefold() in {
-                "nema",
-                "nema stavki",
-                "nema izdvojenih stavki",
-            }:
+            if line.casefold() in empty_values:
                 continue
 
             result[current_section].append(line)
@@ -611,61 +709,204 @@ BELEŠKE:
         return result
 
     @classmethod
-    def parse_overview_output(cls, text: str) -> dict[str, str]:
-        """Parsira završni izlaz, ali prihvata i običan tekst bez oznaka."""
+    def parse_overview_output(
+            cls,
+            text: str,
+    ) -> dict[str, str]:
+        """
+        Parsira završni Gemma odgovor.
+
+        Podržava:
+        [NASLOV]
+        NASLOV
+        [NASLOV] sadržaj
+        NASLOV: sadržaj
+
+        i isto za VRSTA_SADRZAJA i KRATAK_PREGLED.
+        """
+
         normalized_text = cls.normalize_text(text)
+
         result = {
             "title": "",
             "content_type": "",
             "overview": "",
         }
+
         section_map = {
             "NASLOV": "title",
             "VRSTA_SADRZAJA": "content_type",
+            "VRSTA SADRZAJA": "content_type",
             "KRATAK_PREGLED": "overview",
+            "KRATAK PREGLED": "overview",
         }
+
         collected: dict[str, list[str]] = {
             "title": [],
             "content_type": [],
             "overview": [],
         }
+
         current_key: str | None = None
 
         for raw_line in normalized_text.splitlines():
             line = raw_line.strip()
+
             if not line:
                 continue
 
-            match = cls.SECTION_PATTERN.fullmatch(line)
-            if match:
-                current_key = section_map.get(match.group(1))
+            # Uklanja eventualni bullet sa početka.
+            line = re.sub(
+                r"^[-*•]\s*",
+                "",
+                line,
+            ).strip()
+
+            # ---------------------------------------------
+            # 1. Format:
+            #
+            # [NASLOV]
+            # [VRSTA_SADRZAJA]
+            # [KRATAK_PREGLED]
+            #
+            # ali podržava i:
+            #
+            # [NASLOV] neki naslov
+            # ---------------------------------------------
+
+            bracket_match = re.match(
+                r"^\["
+                r"(NASLOV|VRSTA_SADRZAJA|KRATAK_PREGLED)"
+                r"\]"
+                r"\s*:?\s*(.*)$",
+                line,
+                flags=re.IGNORECASE,
+            )
+
+            if bracket_match:
+                section_name = (
+                    bracket_match
+                    .group(1)
+                    .upper()
+                )
+
+                inline_content = (
+                    bracket_match
+                    .group(2)
+                    .strip()
+                )
+
+                current_key = section_map.get(
+                    section_name
+                )
+
+                if (
+                        current_key
+                        and inline_content
+                ):
+                    collected[current_key].append(
+                        inline_content
+                    )
+
                 continue
 
-            if current_key is None:
+            # ---------------------------------------------
+            # 2. Format bez uglastih zagrada:
+            #
+            # NASLOV
+            # naslov
+            #
+            # ili:
+            #
+            # NASLOV: naslov
+            # ---------------------------------------------
+
+            plain_match = re.match(
+                r"^"
+                r"(NASLOV|"
+                r"VRSTA_SADRZAJA|VRSTA SADRZAJA|"
+                r"KRATAK_PREGLED|KRATAK PREGLED)"
+                r"\s*:?\s*(.*)$",
+                line,
+                flags=re.IGNORECASE,
+            )
+
+            if plain_match:
+                section_name = (
+                    plain_match
+                    .group(1)
+                    .upper()
+                )
+
+                inline_content = (
+                    plain_match
+                    .group(2)
+                    .strip()
+                )
+
+                current_key = section_map.get(
+                    section_name
+                )
+
+                if (
+                        current_key
+                        and inline_content
+                ):
+                    collected[current_key].append(
+                        inline_content
+                    )
+
                 continue
 
-            line = re.sub(r"^[-*•]\s*", "", line).strip()
-            if line:
-                collected[current_key].append(line)
+            # ---------------------------------------------
+            # 3. Ako smo već u nekoj sekciji,
+            # dodajemo tekst toj sekciji.
+            # ---------------------------------------------
 
+            if current_key is not None:
+                collected[current_key].append(
+                    line
+                )
+
+        # Spajanje linija svake sekcije.
         for key, values in collected.items():
-            result[key] = " ".join(values).strip()
+            result[key] = " ".join(
+                values
+            ).strip()
 
-        # Gemma ponekad vrati samo običan pasus bez [KRATAK_PREGLED].
-        # Takav odgovor je i dalje upotrebljiv i ne sme da obori ceo proces.
-        if not result["overview"] and normalized_text:
-            fallback_lines: list[str] = []
+        # ---------------------------------------------
+        # Bezbedan fallback.
+        #
+        # Ako Gemma nije vratila nijednu oznaku,
+        # ceo odgovor koristimo samo kao overview.
+        # ---------------------------------------------
+
+        if (
+                not result["title"]
+                and not result["content_type"]
+                and not result["overview"]
+                and normalized_text
+        ):
+            fallback_lines = []
+
             for raw_line in normalized_text.splitlines():
                 line = raw_line.strip()
+
                 if not line:
                     continue
-                if cls.SECTION_PATTERN.fullmatch(line):
-                    continue
-                line = re.sub(r"^[-*•]\s*", "", line).strip()
+
+                line = re.sub(
+                    r"^[-*•]\s*",
+                    "",
+                    line,
+                ).strip()
+
                 if line:
                     fallback_lines.append(line)
 
-            result["overview"] = " ".join(fallback_lines).strip()
+            result["overview"] = " ".join(
+                fallback_lines
+            ).strip()
 
         return result
 
@@ -714,7 +955,7 @@ BELEŠKE:
 
     @staticmethod
     def split_oversized_item(item: str, max_length: int = 260) -> list[str]:
-        """Deli samo predugačke stavke na čitljive delove."""
+        """Deli samo predugacke stavke na citljive delove."""
         if len(item) <= max_length:
             return [item]
 

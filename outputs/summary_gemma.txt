@@ -1,32 +1,74 @@
 NASLOV
-Zdravo svima i dobrodošli u moj novi video
+kineska veštačka inteligencija.
 
 VRSTA SADRŽAJA
-razgovor
+drugo
 
 KRATAK PREGLED
-Zdravo svima i dobrodošli u moj novi video.
-Ja sam Maša Vasić i sada se nalazim u sobi moje sestre Leme.
-Lena je moja mlađa sestra i mala je glupa.
-Hvala svima na pažnji. Vidimo se u sledećem videu.
+Predavanje se fokusira na rastuću konkurenciju između Kine i Sjedinjenih Državina u oblasti veštačke inteligencije. Kina intenzivno investira u razvoj i izvoz veštačke inteligencije, posebno robota i pametnih automobila, dok su Amerika i dalje lider u ovoj oblasti. Iako su kineski modeli često jeftiniji, njihova kvaliteta je u nekim aspektima inferiornija. Sastanak lidera dveju zemalja, planiran za 24. septembar, biće posvećen temi veštačke inteligencije i globalnoj ekonomskoj konkurenciji. Kina nastavlja da raste u ekonomskom i kulturnom smislu, koristeći turizam i kulturu za globalnu ekspansiju, dok Amerika u protekla dva desetennia dominira na globalnom nivou.
 
 GLAVNE TEME
-- Zdravo svima i dobrodošli u moj novi video.
+- kineska veštačka inteligencija.
+- konkurencija sa Sjedinjenim državama.
+- uticaj na američku industriju veštačke inteligencije.
+- Američka i kineska ekonomija/globalna dominacija.
+- Kineska kultura i tehnologija.
+- Razvoj veštačke inteligencije (AI).
+- Kineski izvoz (posebno električnih automobila i AI proizvoda).
+- Uticaj inflacije na izvoz.
 
 VAŽNE INFORMACIJE
-- Zdravo svima i dobrodošli u moj novi video.
-- Ja sam Maša Vasić i sada se nalazim u sobi moje sestre Leme.
-- Lena je moja mlađa sestra i mala je glupa.
-- Hvala svima na pažnji. Vidimo se u sledećem videu.
+- DeepSeek model (jeftiniji, ali i slabiji od američkih).
+- Kimi K3 model (jeftiniji od američkih, bolji u šest od sedam domena).
+- investicije u veštačku inteligenciju u Sjedinjenim državama (700 milijardi dolara godišnje).
+- zabrana izvoza čipova.
+- Kina razvija domaće kapacitete i resurse.
+- ograničenja pristupa čipovima i sirovinama.
+- Amerika je u proteklih 20 godina plasirala svoj način života širom sveta.
+- Kina raste u ekonomskom i kulturnom smislu.
+- Kina koristi turizam i kulturne sadržaje za globalnu ekspansiju.
+- Nakon Drugog svetskog rata, zapadna kultura je dominirala na globalnom nivou.
+- Kina je postigla rekordni izvoz (125,6 milijardi dolara) u junu, najveći izvozni rezultat svih vremena.
+- Veštačka inteligencija je važan izvozni artikal Kine (roboti, pametni automobili).
+- Kina eksportuje veštačku inteligenciju u zemlje "globalnog juga" (jugoistočna Azija, Bliski istok, Afrika, Latinska Amerika, istočna Evropa).
+- Veštačka inteligencija se izvozi u preko 70-80% zemalja sveta.
+- Sastanak Xi Jinpinga i Trumpa je zakazan za 24. septembar u Beloj kući.
+- Tema sastanka je veštačka inteligencija.
+- dve najveće sile na svetu su SAD i Kina.
+- grupa tehnoloških lidera posetila je Peking sa Donaldom Trampom.
 
 BROJEVI I DATUMI
-- Nema izdvojenih stavki.
+- 24. septembra (sastanak Xi Jinpinga i Donalda Trampa).
+- 10% (razlika u performansama između kineskih i američkih modela).
+- 50-60% (cena kineskih modela u odnosu na američke).
+- 70% (cene kineskih modela u odnosu na američke).
+- 700 milijardi dolara (investicije u veštačku inteligenciju u Sjedinjenim državama).
+- nekoliko milijardi dolara (troškovi jednog data centra).
+- desetine milijardi dolara (troškovi data centara).
+- 20 godina (prošlo od početka amerikanizacije).
+- Deseta godina (prošlo od upoznavanja kineskih turista).
+- 125,6 milijardi dolara (rekordan kineski izvoz u junu).
+- 70-80% (broj zemlja u kojima se izvozi veštačka inteligencija).
+- 24. septembar (datum sastanka Xi Jinpinga i Trumpa).
+- dva meseca.
 
 ZAKLJUČCI
-- Nema izdvojenih stavki.
+- Kina predstavlja ekonomski izazov za američku industriju veštačke inteligencije.
+- Potencijalni lom na berzi u Njurku.
+- Važnost globalne međuzavisnosti i pristupa sirovinama.
+- Postoji trka između Amerike i Kine za globalnu dominaciju, posebno u oblasti tehnologije (veštačka inteligencija).
+- Kina ima veliki potencijal za globalnu ekspansiju, posebno kroz veštačku inteligenciju i kulturu.
+- očekivanje da će zemlje nastaviti saradnju.
 
 AKCIONE STAVKE
 - Nema izdvojenih stavki.
 
 NEJASNI DELOVI TRANSKRIPTA
-- Nema izdvojenih stavki.
+- "sunovrat akcija" (implikuje pad vrednosti akcija).
+- "udarec u ekonomskom ratu" (konkretna akcija nije navedena).
+- "kraja te njihove industrije veštačke inteligencije" (implikacija o potencijalnom kraju industrije).
+- "Viva ID i ostali automobili" (Konkretni modeli električnih automobila koji se pominju).
+- "veštačka inteligencija u sebi" (Konkretni primeri veštačke inteligencije u proizvodima).
+- "negativni utjecaji ovog rata u Persijskom zalivu" (Preciznije uticaje rata na kineski izvoz).
+- "meriški predsednik" (Nejasno ko je "meriški predsednik").
+- „sklanjanju potpunog razvoja“ – nejasno šta se podrazumeva pod „sklanjanjem“.
