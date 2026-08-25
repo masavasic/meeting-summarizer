@@ -756,6 +756,18 @@ class MainWindow(QMainWindow):
 
         self.live_transcript_path = transcript_path
 
+        # Na STOP-u realtime_vad može da uradi finalnu full-context
+        # korekciju speaker-a i ponovo upiše transcript_live.txt.
+        # Osvežimo polje da GUI ne ostane na starim live etiketama.
+        try:
+            final_live_text = Path(transcript_path).read_text(
+                encoding="utf-8"
+            )
+            self.live_transcript_output.setPlainText(final_live_text)
+        except Exception as error:
+            self.log_output.appendPlainText(
+                f"Nije moguće osvežiti finalni live transkript: {error}"
+            )
 
         self.choose_button.setEnabled(True)
         self.drop_area.setEnabled(True)

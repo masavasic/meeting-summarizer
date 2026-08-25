@@ -217,3 +217,15 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 audio/*.wav
+
+.venv/
+.venv-community/
+.venv-diart/
+
+models/
+outputs/
+
+speaker_profiles/
+
+__pycache__/
+*.pyc

@@ -27,7 +27,7 @@ def transcribe_audio(
         beam_size=5,
         temperature=0.0,
         vad_filter=True,
-        condition_on_previous_text=True,
+        condition_on_previous_text=False,
         initial_prompt=(
             "Elektrotehnički fakultet, ETF, Univerzitet u Beogradu, "
             "elektrotehnika, računarstvo, softversko inženjerstvo, "

@@ -14,10 +14,15 @@ from processing.speaker_diarization import (
     assign_speakers_to_transcript,
     save_speaker_transcript,
 )
+from processing.speaker_identification_client import (
+    identify_speakers_subprocess,
+    apply_speaker_names,
+)
 
 
 AUDIO_PATH = "audio/etf-predstavljanje.wav"
 TRANSCRIPT_PATH = "outputs/transcript.txt"
+SPEAKER_PROFILES_PATH = "speaker_profiles"
 SPEAKER_TRANSCRIPT_PATH = "outputs/transcript_speakers.txt"
 LIVE_TRANSCRIPT_PATH = "outputs/transcript_live.txt"
 CLEAN_TRANSCRIPT_PATH = "outputs/transcript_clean.txt"
@@ -64,11 +69,11 @@ def run_pipeline(audio_path: str) -> None: #offline pipeline
     print(f"Audio fajl: {audio_path}")
     print()
 
-    print("[1/5] Detekcija govora...")
+    print("[1/7] Detekcija govora...")
     detect_speech(audio_path) #detekcija govora iz vad.py
 
     print()
-    print("[2/6] Transkripcija...")
+    print("[2/7] Transkripcija...")
 
     whisper_segments = transcribe_audio(
         audio_path=audio_path,
@@ -76,15 +81,29 @@ def run_pipeline(audio_path: str) -> None: #offline pipeline
     )
 
     print()
-    print("[3/6] Speaker diarization...")
+    print("[3/7] Speaker diarization...")
 
     diarization_segments = diarize_audio(
         audio_path
     )
 
+    print()
+    print("[4/7] Speaker identification...")
+
+    speaker_mapping = identify_speakers_subprocess(
+        audio_path=audio_path,
+        diarization_segments=diarization_segments,
+        profiles_dir=SPEAKER_PROFILES_PATH,
+    )
+
+    identified_diarization_segments = apply_speaker_names(
+        diarization_segments=diarization_segments,
+        speaker_mapping=speaker_mapping,
+    )
+
     merged_segments = assign_speakers_to_transcript(
         whisper_segments,
-        diarization_segments,
+        identified_diarization_segments,
     )
 
     save_speaker_transcript(
@@ -93,7 +112,7 @@ def run_pipeline(audio_path: str) -> None: #offline pipeline
     )
 
     print()
-    print("[4/6] Čišćenje transkripta...")
+    print("[5/7] Čišćenje transkripta...")
 
     clean_transcript(
         input_path=SPEAKER_TRANSCRIPT_PATH,
@@ -101,7 +120,7 @@ def run_pipeline(audio_path: str) -> None: #offline pipeline
     )
 
     print()
-    print("[5/6] Sumarizacija...")
+    print("[6/7] Sumarizacija...")
     summarize_transcript_file(
         input_path=CLEAN_TRANSCRIPT_PATH,
         output_path=SUMMARY_PATH,
@@ -110,7 +129,7 @@ def run_pipeline(audio_path: str) -> None: #offline pipeline
     )
 
     print()
-    print("[6/6] Generisanje PDF sažetka...")
+    print("[7/7] Generisanje PDF sažetka...")
     generate_pdf_report(
         summary_json_path=SUMMARY_JSON_PATH,
         output_pdf_path=PDF_REPORT_PATH,
