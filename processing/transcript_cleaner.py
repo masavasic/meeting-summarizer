@@ -78,21 +78,22 @@ def are_similar(first: str, second: str, threshold: float = 0.94,) -> bool: #thr
 
 def extract_speaker(text: str) -> str | None:
     match = re.match(
-        r"^(SPEAKER_\d+):\s*",
+        r"^([^:]+):\s*",
         text,
     )
 
     if match:
-        return match.group(1)
+        return match.group(1).strip()
 
     return None
 
 
 def remove_speaker_prefix(text: str) -> str:
     return re.sub(
-        r"^SPEAKER_\d+:\s*",
+        r"^[^:]+:\s*",
         "",
         text,
+        count=1,
     ).strip()
 def should_merge(
     previous: str,
@@ -104,17 +105,13 @@ def should_merge(
     previous_speaker = extract_speaker(previous)
     current_speaker = extract_speaker(current)
 
-    if previous_speaker != current_speaker:
+    if (
+        previous_speaker is None
+        or current_speaker is None
+    ):
         return False
 
-    previous_text = remove_speaker_prefix(
-        previous
-    )
-
-    if not previous_text:
-        return False
-
-    return previous_text[-1] not in ".!?"
+    return previous_speaker == current_speaker
 
 def clean_transcript(input_path: str,output_path: str,) -> None:
     segments: list[str] = []

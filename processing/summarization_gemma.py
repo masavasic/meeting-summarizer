@@ -60,6 +60,9 @@ class GemmaTranscriptSummarizer: #glavna klasa, nas ceo gemma sumarizer
     SAFE_TEXT_REPLACEMENTS = {
         "bolenskom deklaracijom": "Bolonjskom deklaracijom",
         "bolenska deklaracija": "Bolonjska deklaracija",
+        "bolansko deklaracijo": "Bolonjska deklaracija",
+        "financiranje": "finansiranje",
+        "mogucnosti": "mogućnosti",
         "diagnostičkih": "dijagnostičkih",
         "diagnostički": "dijagnostički",
         "prosena ocena": "prosečna ocena",
@@ -325,56 +328,237 @@ class GemmaTranscriptSummarizer: #glavna klasa, nas ceo gemma sumarizer
             "has_invented_numbers": bool(added_numbers),
         }
 
+    def ground_numeric_items_to_source(
+            self,
+            items: list[str],
+            transcript: str,
+    ) -> list[str]:
+        """
+        Za svaku stavku sa cifrom pronalazi originalnu rečenicu
+        transkripta koja sadrži isti broj i koristi nju umesto
+        modelskog prepričavanja.
+        """
+
+        sentences = self.split_into_sentences(transcript)
+        grounded: list[str] = []
+        seen: set[str] = set()
+
+        for item in items:
+            item_numbers = {
+                self.normalize_number(number)
+                for number in self.extract_numbers(item)
+            }
+
+            # Ne prihvatamo numeričku stavku ako nema stvarnu cifru.
+            if not item_numbers:
+                continue
+
+            for sentence in sentences:
+                sentence_numbers = {
+                    self.normalize_number(number)
+                    for number in self.extract_numbers(sentence)
+                }
+
+                if not item_numbers.intersection(sentence_numbers):
+                    continue
+
+                clean_sentence = self.normalize_text(sentence).strip()
+
+                normalized = self.normalize_item_for_comparison(
+                    clean_sentence
+                )
+
+                if normalized and normalized not in seen:
+                    seen.add(normalized)
+                    grounded.append(
+                        clean_sentence.rstrip(" .") + "."
+                    )
+
+                break
+
+        return grounded
+
+    def validate_grounded_items(
+            self,
+            items: list[str],
+            transcript: str,
+    ) -> list[str]:
+        """
+        Zadržava numeričke stavke samo ako njihov broj postoji u
+        odgovarajućem kontekstu originalnog transkripta.
+
+        Stavke bez brojeva se za sada zadržavaju.
+        """
+
+        transcript_sentences = self.split_into_sentences(transcript)
+
+        validated: list[str] = []
+
+        stop_words = {
+            "je", "su", "se", "na", "u", "za", "od", "do",
+            "i", "ili", "a", "da", "koji", "koja", "koje",
+            "sa", "ima", "imaju", "bio", "bila", "bili",
+            "godina", "godine", "broj", "oko",
+        }
+
+        for item in items:
+            item_numbers = {
+                self.normalize_number(number)
+                for number in self.extract_numbers(item)
+            }
+
+            # Ako stavka nema broj, ne diramo je ovom validacijom.
+            if not item_numbers:
+                validated.append(item)
+                continue
+
+            item_words = {
+                word
+                for word in re.findall(
+                    r"[a-zA-ZčćžšđČĆŽŠĐ]+",
+                    item.casefold(),
+                )
+                if len(word) >= 4 and word not in stop_words
+            }
+
+            grounded = False
+
+            for sentence in transcript_sentences:
+                sentence_numbers = {
+                    self.normalize_number(number)
+                    for number in self.extract_numbers(sentence)
+                }
+
+                # Rečenica mora da sadrži bar jedan isti broj.
+                if not item_numbers.intersection(sentence_numbers):
+                    continue
+
+                sentence_words = {
+                    word
+                    for word in re.findall(
+                        r"[a-zA-ZčćžšđČĆŽŠĐ]+",
+                        sentence.casefold(),
+                    )
+                    if len(word) >= 4 and word not in stop_words
+                }
+
+                common_words = item_words.intersection(sentence_words)
+
+                # Tražimo bar dve zajedničke sadržajne reči.
+                if len(common_words) >= 2:
+                    grounded = True
+                    break
+
+            if grounded:
+                validated.append(item)
+            else:
+                print(
+                    "Odbačena nepouzdana numerička stavka:",
+                    item,
+                )
+
+        return validated
     @staticmethod
-    def build_chunk_prompt( #samo pravi tekst prompta koji cemo Gemmi poslati
-        chunk: str,
-        chunk_number: int,
-        total_chunks: int,
+    def build_chunk_prompt(
+            chunk: str,
+            chunk_number: int,
+            total_chunks: int,
     ) -> str:
         return f"""
-Analiziraj deo {chunk_number} od ukupno {total_chunks} delova automatski
-transkribovanog govora na srpskom jeziku.
+    Analiziraj deo {chunk_number} od ukupno {total_chunks} delova
+    automatski transkribovanog govora na srpskom jeziku.
 
-Izdvoji samo informacije koje se zaista pojavljuju u tekstu.
+    Tvoj glavni cilj je TAČNOST, a ne kratkoća.
 
-Pravila:
-- Piši na srpskom jeziku, ekavicom i isključivo latinicom.
-- Ne prevodi na engleski.
-- Ne izmišljaj činjenice i ne dodaj opšte znanje.
-- Ne menjaj smisao rečenica.
-- Sačuvaj važna imena, nazive, brojeve, datume, procente, iznose i rangove.
-- Očiglednu grešku transkripcije protumači samo kada je značenje potpuno jasno.
-- Kada značenje nije jasno, navedi sporni izraz u sekciji NEJASNI_DELOVI.
-- Akcione stavke navedi samo kada tekst sadrži konkretnu obavezu, rok ili zadatak
-  koji neko treba da izvrši posle ovog razgovora.
-- Informacije o postupku upisa nisu akcione stavke same po sebi.
-- Svaka stavka mora početi znakom "-".
-- Ne piši uvod, završni komentar, dodatne sekcije ili Markdown naslov.
-- Svaku sekciju navedi tačno jednom i tačno ovim redosledom.
+    Izdvoji samo informacije koje su direktno podržane tekstom.
 
-[GLAVNE_TEME]
-- tema
+    STROGA PRAVILA:
+    - Piši na srpskom jeziku, ekavicom i latinicom.
+    - Ne koristi nikakvo spoljašnje znanje.
+    - Ne izmišljaj činjenice.
+    - Ne dopunjavaj ono što govornik nije rekao.
+    - Ne menjaj značenje originalne rečenice.
+    - Formulaciju zadrži što bliže izvornom tekstu.
+    - Ako nisi siguran u značenje, radije izostavi stavku nego da nagađaš.
+    - Ne proširuj skraćenice osim ako je puno značenje jasno navedeno u tekstu.
+    - Ne pretvaraj naziv programa, odseka ili institucije u drugi pojam.
 
-[VAZNE_INFORMACIJE]
-- konkretna informacija
+    POSEBNO ZA BROJEVE I DATUME:
+    - Svaki broj mora ostati povezan sa TAČNO onim pojmom uz koji se
+      pojavljuje u tekstu.
+    - Ne menjaj jedinicu ili kategoriju broja.
+    - "30 mesta" nikada ne sme postati "30 poena".
+    - Ako tekst kaže da nešto traje ili važi devet godina, ne smeš tih
+      devet godina pripisati nekoj drugoj činjenici.
+    - Ako se tri fakulteta nalaze u jednoj zgradi, ne zaključuj da grad
+      ima tri fakulteta.
+    - Datum ili period ne proglašavaj rokom ako tekst ne kaže da je rok.
+    - Ne menjaj budžetska mesta u samofinansirajuća niti obrnuto.
+    - Ako je broj u transkriptu nejasan ili loše prepoznat, izostavi ga.
 
-[BROJEVI_I_DATUMI]
-- broj ili datum sa objašnjenjem
+    VAŽNE INFORMACIJE:
+    - Napiši celu informaciju, tako da se jasno vidi šta je subjekt,
+      šta je tvrdnja i na šta se eventualni broj odnosi.
+    - Izbegavaj kratke beleške koje mogu izgubiti kontekst.
+    - Ako je broj ili naziv u izvoru nejasan, ne pokušavaj da ga rekonstruišeš.
 
-[ZAKLJUCCI]
-- zaključak direktno podržan tekstom
+    ZAKLJUČCI:
+    - Navedi samo zaključke koje govornik direktno iznosi ili koji
+      neposredno slede iz njegovih reči.
+    - Ne pravi sopstvene zaključke.
 
-[AKCIONE_STAVKE]
-- konkretna buduća obaveza ili zadatak
+    AKCIONE STAVKE:
+    - Navedi samo konkretan budući zadatak ili obavezu koju određena
+      osoba ili grupa treba da izvrši nakon razgovora.
+    - Savet publici nije akciona stavka.
+    - Opis procedure nije akciona stavka.
+    - Opis redovnog događaja nije akciona stavka.
+    - Ono što govornik trenutno radi tokom prezentacije nije akciona stavka.
 
-[NEJASNI_DELOVI]
-- nejasan ili verovatno pogrešno transkribovan izraz
+    NEJASNI DELOVI:
+    - Navedi samo delove kod kojih greška transkripcije stvarno
+      sprečava razumevanje.
+    - Ne navodi metafore, normalne kolokvijalne izraze ili rečenice
+      čiji je smisao jasan iz konteksta.
 
-Kada neka sekcija nema stavke, napiši samo njenu oznaku i pređi na sledeću.
+    Vrati ISKLJUČIVO validan JSON objekat.
+
+Svaka vrednost mora biti lista običnih stringova.
+NE koristi objekte unutar lista.
+NE koristi dodatne ključeve kao što su "tema", "broj", "značenje" ili
+"informacija".
+NE piši tekst pre ili posle JSON-a.
+- U BROJEVI_I_DATUMI ne prepričavaj i ne tumači.
+- Zadrži isti odnos broj -> pojam kao u izvornoj rečenici.
+- Ako je deo rečenice oko broja nejasan zbog transkripcije, izostavi celu stavku.
+Koristi tačno ove ključeve:
+
+{{
+  "GLAVNE_TEME": [
+    "tema"
+  ],
+  "VAZNE_INFORMACIJE": [
+    "cela i kontekstualno potpuna informacija"
+  ],
+  "BROJEVI_I_DATUMI": [
+    "kopiraj samo rečenicu iz izvora koja sadrži broj ili datum, uz minimalno gramatičko sređivanje"
+],
+  "ZAKLJUCCI": [
+    "zaključak direktno podržan tekstom"
+  ],
+  "AKCIONE_STAVKE": [
+    "konkretna buduća obaveza"
+  ],
+  "NEJASNI_DELOVI": [
+    "stvarno nejasan izraz"
+  ]
+}}
+
+Ako neka sekcija nema pouzdane informacije, vrati praznu listu [].
 
 TEKST:
 {chunk}
-""".strip()
+    """.strip()
 
     @staticmethod
     def build_overview_prompt( #ovo je drugi promt
@@ -384,8 +568,11 @@ TEKST:
     ) -> str:
         source_data = {
             "glavne_teme": main_topics,
-            "vazne_informacije": important_information,
-            "brojevi_i_datumi": numbers_and_dates,
+            "vazne_informacije": [
+                item
+                for item in important_information
+                if not re.search(r"\d", item)
+            ],
         }
 
         return f"""
@@ -399,10 +586,19 @@ Pravila:
 - Strogo razlikuj školarinu, cenu i početnu platu; nikada ih ne spajaj.
 - Ne menjaj nazive studijskih programa i ne izmišljaj nove oblasti.
 - Ne koristi podebljanje, zvezdice ni Markdown.
-- Kratak pregled treba da ima od 4 do 6 jasnih rečenica.
+- Kratak pregled treba da ima od 3 do 6 jasnih rečenica.
+- Ne dodaj sadržaj samo zato da bi dostigao određeni broj rečenica.
 - Pregled mora da obuhvati ceo sadržaj, a ne samo jednu temu.
 - Ne navodi svaki broj pojedinačno.
 - Ne piši Markdown, uvod ili završni komentar.
+- Ne uvodi nijedan događaj, proces ili činjenicu koja nije navedena u beleškama.
+- Ako beleške nisu dovoljne za neku tvrdnju, izostavi je.
+- Ne pokušavaj da objasniš ili proširiš skraćenice.
+- Ne ponavljaj oznake [NASLOV], [VRSTA_SADRZAJA] ili [KRATAK_PREGLED]
+  unutar sadržaja neke druge sekcije.
+- NASLOV mora sadržati samo naslov.
+- VRSTA_SADRZAJA mora sadržati samo jednu od ponuđenih vrsta sadržaja.
+- KRATAK_PREGLED mora sadržati samo tekst pregleda.
 - Koristi tačno sledeći format:
 
 [NASLOV]
@@ -726,6 +922,14 @@ BELEŠKE:
         """
 
         normalized_text = cls.normalize_text(text)
+        # Gemma ponekad zalepi oznaku sledeće sekcije za prethodni tekst.
+        # Forsiramo poznate oznake u zasebne redove pre parsiranja.
+        normalized_text = re.sub(
+            r"\s*(\[(?:NASLOV|VRSTA_SADRZAJA|KRATAK_PREGLED)\])\s*",
+            r"\n\1\n",
+            normalized_text,
+            flags=re.IGNORECASE,
+        ).strip()
 
         result = {
             "title": "",
@@ -924,7 +1128,7 @@ BELEŠKE:
 
         output = self.generate_text(
             prompt=prompt,
-            max_new_tokens=1100,
+            max_new_tokens=1500,
         )
 
         os.makedirs("outputs/debug_raw", exist_ok=True)
@@ -1077,8 +1281,9 @@ BELEŠKE:
         return filtered
 
     def create_final_summary(
-        self,
-        partial_summaries: list[dict[str, Any]],
+            self,
+            transcript: str,
+            partial_summaries: list[dict[str, Any]],
     ) -> SummaryResult:
         main_topics = self.collect_unique_items(
             partial_summaries,
@@ -1090,11 +1295,17 @@ BELEŠKE:
             "vazne_informacije",
             limit=28,
         )
+
         numbers_and_dates = self.collect_unique_items(
             partial_summaries,
             "brojevi_i_datumi",
             limit=24,
         )
+        numbers_and_dates = self.ground_numeric_items_to_source(
+            numbers_and_dates,
+            transcript,
+        )
+
         conclusions = self.collect_unique_items(
             partial_summaries,
             "zakljucci",
@@ -1173,6 +1384,30 @@ BELEŠKE:
         short_overview = self.normalize_text(
             overview_data["overview"]
         ).strip(" -*#")
+        # Gemma ponekad ponovi naslov, vrstu sadržaja ili reč "Pregled"
+        # na početku kratkog pregleda.
+        prefixes_to_remove = [
+            title,
+            content_type,
+            "Kratak pregled",
+            "Pregled",
+        ]
+        short_overview = re.sub(
+            r"^(?:.+?\s+)?(?:Predavanje|Prezentacija|Sastanak|Intervju|Drugo)\s+Pregled\s+",
+            "",
+            short_overview,
+            flags=re.IGNORECASE,
+        ).strip()
+        for prefix in prefixes_to_remove:
+            if not prefix:
+                continue
+
+            short_overview = re.sub(
+                rf"^\s*{re.escape(prefix)}\s*[:\-–—]?\s*",
+                "",
+                short_overview,
+                flags=re.IGNORECASE,
+            ).strip()
 
         if not short_overview:
             fallback_sentences: list[str] = []
@@ -1294,7 +1529,10 @@ BELEŠKE:
             )
 
         print("Kreiranje konačnog sažetka...")
-        final_summary = self.create_final_summary(partial_summaries)
+        final_summary = self.create_final_summary(
+            transcript=transcript,
+            partial_summaries=partial_summaries,
+        )
         formatted_summary = self.format_summary(final_summary)
 
         number_check = self.compare_numbers(
